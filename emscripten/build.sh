@@ -5,7 +5,7 @@ function print_help {
 -c		Turns on \"Chatty\" compiling; Will print the compiler progress" >&2 ; 
 } 
 
-LIBMEI_ROOT=../
+LIBMEI_ROOT=..
 LIBMEI_INCLUDE=../src
 
 if command -v emcc >/dev/null 2>&1 ; then
@@ -22,8 +22,9 @@ if [ ! -d build ]; then mkdir build; fi
 ASM="\
 	-O2 --memory-init-file 0 \
 	-s ASM_JS=1 \
-	-s TOTAL_MEMORY=128*1024*1024 \
-	-s TOTAL_STACK=64*1024*1024"
+        -s WASM=0 \
+	-s TOTAL_MEMORY=128MB \
+	-s TOTAL_STACK=64MB"
 ASM_NAME=""
 
 CHATTY=""
@@ -66,7 +67,7 @@ $EMCC $CHATTY --bind \
     \
     $LIBMEI_ROOT/src/pugixml.cpp \
     \
-    $LIBMEI_ROOT/src/modules/analysismixins.cpp \
+    $LIBMEI_ROOT/src/modules/analyticalmixins.cpp \
     $LIBMEI_ROOT/src/modules/cmn.cpp \
     $LIBMEI_ROOT/src/modules/cmnmixins.cpp \
     $LIBMEI_ROOT/src/modules/cmnornaments.cpp \
@@ -74,34 +75,44 @@ $EMCC $CHATTY --bind \
     $LIBMEI_ROOT/src/modules/corpus.cpp \
     $LIBMEI_ROOT/src/modules/critapp.cpp \
     $LIBMEI_ROOT/src/modules/critappmixins.cpp \
+    $LIBMEI_ROOT/src/modules/drama.cpp \
     $LIBMEI_ROOT/src/modules/edittrans.cpp \
     $LIBMEI_ROOT/src/modules/edittransmixins.cpp \
+    $LIBMEI_ROOT/src/modules/externalsymbolsmixins.cpp \
     $LIBMEI_ROOT/src/modules/facsimile.cpp \
     $LIBMEI_ROOT/src/modules/facsimilemixins.cpp \
     $LIBMEI_ROOT/src/modules/figtable.cpp \
     $LIBMEI_ROOT/src/modules/figtablemixins.cpp \
+    $LIBMEI_ROOT/src/modules/fingering.cpp \
+    $LIBMEI_ROOT/src/modules/fingeringmixins.cpp \
     $LIBMEI_ROOT/src/modules/frbr.cpp \
-    $LIBMEI_ROOT/src/modules/frbrmixins.cpp \
+    $LIBMEI_ROOT/src/modules/genetic.cpp \
+    $LIBMEI_ROOT/src/modules/geneticmixins.cpp \
+    $LIBMEI_ROOT/src/modules/gesturalmixins.cpp \
     $LIBMEI_ROOT/src/modules/harmony.cpp \
     $LIBMEI_ROOT/src/modules/harmonymixins.cpp \
     $LIBMEI_ROOT/src/modules/header.cpp \
     $LIBMEI_ROOT/src/modules/headermixins.cpp \
-    $LIBMEI_ROOT/src/modules/linkalign.cpp \
-    $LIBMEI_ROOT/src/modules/linkalignmixins.cpp \
     $LIBMEI_ROOT/src/modules/lyrics.cpp \
-    $LIBMEI_ROOT/src/modules/lyricsmixins.cpp \
+    $LIBMEI_ROOT/src/modules/meimixins.cpp \
     $LIBMEI_ROOT/src/modules/mensural.cpp \
     $LIBMEI_ROOT/src/modules/mensuralmixins.cpp \
     $LIBMEI_ROOT/src/modules/midi.cpp \
     $LIBMEI_ROOT/src/modules/midimixins.cpp \
+    $LIBMEI_ROOT/src/modules/msdesc.cpp \
+    $LIBMEI_ROOT/src/modules/msdescmixins.cpp \
     $LIBMEI_ROOT/src/modules/namesdates.cpp \
     $LIBMEI_ROOT/src/modules/neumes.cpp \
     $LIBMEI_ROOT/src/modules/neumesmixins.cpp \
     $LIBMEI_ROOT/src/modules/performance.cpp \
+    $LIBMEI_ROOT/src/modules/performancemixins.cpp \
     $LIBMEI_ROOT/src/modules/ptrref.cpp \
     $LIBMEI_ROOT/src/modules/shared.cpp \
     $LIBMEI_ROOT/src/modules/sharedmixins.cpp \
-    $LIBMEI_ROOT/src/modules/tablaturemixins.cpp \
+    $LIBMEI_ROOT/src/modules/stringtab.cpp \
+    $LIBMEI_ROOT/src/modules/stringtabmixins.cpp \
     $LIBMEI_ROOT/src/modules/text.cpp \
     $LIBMEI_ROOT/src/modules/usersymbols.cpp \
+    $LIBMEI_ROOT/src/modules/usersymbolsmixins.cpp \
+    $LIBMEI_ROOT/src/modules/visualmixins.cpp \
 
