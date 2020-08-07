@@ -32,10 +32,10 @@
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "cmnornamentsmixins.h"
+#include "performancemixins.h"
+#include "gesturalmixins.h"
 #include "usersymbolsmixins.h"
 #include "externalsymbolsmixins.h"
-#include "analysismixins.h"
-#include "performancemixins.h"
 
 
 namespace mei {
@@ -50,30 +50,34 @@ class MEI_EXPORT Mordent : public MeiElement {
 
 /* include <mordent> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         MordentLogMixIn    m_MordentLog;
+        AlignmentMixIn    m_Alignment;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
         PlistMixIn    m_Plist;
-        TargetevalMixIn    m_Targeteval;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        TimestampPerformedMixIn    m_TimestampPerformed;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        StartendidMixIn    m_Startendid;
-        StartidMixIn    m_Startid;
-        OrnamentaccidMixIn    m_Ornamentaccid;
-        AltsymMixIn    m_Altsym;
+        StaffIdentMixIn    m_StaffIdent;
+        TargetEvalMixIn    m_TargetEval;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        StartEndIdMixIn    m_StartEndId;
+        StartIdMixIn    m_StartId;
+        OrnamentAccidMixIn    m_OrnamentAccid;
+        AltSymMixIn    m_AltSym;
         ColorMixIn    m_Color;
-        ExtsymMixIn    m_Extsym;
+        ExtSymMixIn    m_ExtSym;
         PlacementMixIn    m_Placement;
         TypographyMixIn    m_Typography;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        TypedMixIn    m_Typed;
+        VisualOffsetHoMixIn    m_VisualOffsetHo;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
 
     private:
         REGISTER_DECLARATION(Mordent);
@@ -90,39 +94,43 @@ class MEI_EXPORT Trill : public MeiElement {
 
 /* include <trill> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
+        AlignmentMixIn    m_Alignment;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
         PlistMixIn    m_Plist;
-        TargetevalMixIn    m_Targeteval;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        TimestampPerformedMixIn    m_TimestampPerformed;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        AugmentdotsMixIn    m_Augmentdots;
+        StaffIdentMixIn    m_StaffIdent;
+        TargetEvalMixIn    m_TargetEval;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
         DurationAdditiveMixIn    m_DurationAdditive;
-        OrnamentaccidMixIn    m_Ornamentaccid;
-        StartendidMixIn    m_Startendid;
-        StartidMixIn    m_Startid;
-        Timestamp2MusicalMixIn    m_Timestamp2Musical;
-        AltsymMixIn    m_Altsym;
+        OrnamentAccidMixIn    m_OrnamentAccid;
+        StartEndIdMixIn    m_StartEndId;
+        StartIdMixIn    m_StartId;
+        Timestamp2LogicalMixIn    m_Timestamp2Logical;
+        AltSymMixIn    m_AltSym;
         ColorMixIn    m_Color;
         ExtenderMixIn    m_Extender;
-        LinerendMixIn    m_Linerend;
-        LinerendBaseMixIn    m_LinerendBase;
+        LineRendMixIn    m_LineRend;
+        LineRendBaseMixIn    m_LineRendBase;
         PlacementMixIn    m_Placement;
-        ExtsymMixIn    m_Extsym;
+        ExtSymMixIn    m_ExtSym;
         TypographyMixIn    m_Typography;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
-        Visualoffset2HoMixIn    m_Visualoffset2Ho;
-        Visualoffset2ToMixIn    m_Visualoffset2To;
+        VisualOffsetHoMixIn    m_VisualOffsetHo;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
+        VisualOffset2HoMixIn    m_VisualOffset2Ho;
+        VisualOffset2ToMixIn    m_VisualOffset2To;
         XyMixIn    m_Xy;
-        DurationPerformedMixIn    m_DurationPerformed;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        TypedMixIn    m_Typed;
+        DurationGesturalMixIn    m_DurationGestural;
+        Timestamp2GesturalMixIn    m_Timestamp2Gestural;
 
     private:
         REGISTER_DECLARATION(Trill);
@@ -139,30 +147,34 @@ class MEI_EXPORT Turn : public MeiElement {
 
 /* include <turn> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         TurnLogMixIn    m_TurnLog;
+        AlignmentMixIn    m_Alignment;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
         PlistMixIn    m_Plist;
-        TargetevalMixIn    m_Targeteval;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        TimestampPerformedMixIn    m_TimestampPerformed;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        OrnamentaccidMixIn    m_Ornamentaccid;
-        StartidMixIn    m_Startid;
-        AltsymMixIn    m_Altsym;
+        StaffIdentMixIn    m_StaffIdent;
+        TargetEvalMixIn    m_TargetEval;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        OrnamentAccidMixIn    m_OrnamentAccid;
+        StartIdMixIn    m_StartId;
+        AltSymMixIn    m_AltSym;
         ColorMixIn    m_Color;
-        ExtsymMixIn    m_Extsym;
+        ExtSymMixIn    m_ExtSym;
         PlacementMixIn    m_Placement;
         TypographyMixIn    m_Typography;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
+        VisualOffsetHoMixIn    m_VisualOffsetHo;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
         XyMixIn    m_Xy;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Turn);

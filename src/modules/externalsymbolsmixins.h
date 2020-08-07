@@ -31,26 +31,39 @@
 #include <string>
 
 namespace mei {
-class ExtsymMixIn {
+class ExtSymMixIn {
     public:
-        explicit ExtsymMixIn(MeiElement *b);
-        virtual ~ExtsymMixIn();
+        explicit ExtSymMixIn(MeiElement *b);
+        virtual ~ExtSymMixIn();
+        /** \brief A name or label associated with the controlled vocabulary from which the value
+         *  of
+         */
+        MeiAttribute* getGlyphAuth();
+        void setGlyphAuth(std::string _glyphauth);
+        bool hasGlyphAuth();
+        void removeGlyphAuth();
         /** \brief Glyph name.
          */
-        MeiAttribute* getGlyphname();
-        void setGlyphname(std::string _glyphname);
-        bool hasGlyphname();
-        void removeGlyphname();
+        MeiAttribute* getGlyphName();
+        void setGlyphName(std::string _glyphname);
+        bool hasGlyphName();
+        void removeGlyphName();
         /** \brief Numeric glyph reference in hexadecimal notation, e.g.
          * 
          *  "#xE000" or "U+E000". N.B. SMuFL version 1.18 uses the range U+E000 - U+ECBF.
          */
-        MeiAttribute* getGlyphnum();
-        void setGlyphnum(std::string _glyphnum);
-        bool hasGlyphnum();
-        void removeGlyphnum();
+        MeiAttribute* getGlyphNum();
+        void setGlyphNum(std::string _glyphnum);
+        bool hasGlyphNum();
+        void removeGlyphNum();
+        /** \brief The web-accessible location of the controlled vocabulary from which the value of
+         */
+        MeiAttribute* getGlyphUri();
+        void setGlyphUri(std::string _glyphuri);
+        bool hasGlyphUri();
+        void removeGlyphUri();
 
-/* include <glyphnummixin> */
+/* include <glyph.urimixin> */
 
     private:
         MeiElement *b;

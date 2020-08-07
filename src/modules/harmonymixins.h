@@ -31,28 +31,11 @@
 #include <string>
 
 namespace mei {
-class FretlocationMixIn {
-    public:
-        explicit FretlocationMixIn(MeiElement *b);
-        virtual ~FretlocationMixIn();
-        /** \brief Records the location at which a string should be stopped against a fret.
-         */
-        MeiAttribute* getFret();
-        void setFret(std::string _fret);
-        bool hasFret();
-        void removeFret();
-
-/* include <fretmixin> */
-
-    private:
-        MeiElement *b;
-};
-
 class HarmLogMixIn {
     public:
         explicit HarmLogMixIn(MeiElement *b);
         virtual ~HarmLogMixIn();
-        /** \brief Contains a reference to a <chordDef> element elsewhere in the document.
+        /** \brief Contains a reference to a
          */
         MeiAttribute* getChordref();
         void setChordref(std::string _chordref);
@@ -60,23 +43,6 @@ class HarmLogMixIn {
         void removeChordref();
 
 /* include <chordrefmixin> */
-
-    private:
-        MeiElement *b;
-};
-
-class HarmVisMixIn {
-    public:
-        explicit HarmVisMixIn(MeiElement *b);
-        virtual ~HarmVisMixIn();
-        /** \brief Describes how the harmonic indication should be rendered.
-         */
-        MeiAttribute* getRendgrid();
-        void setRendgrid(std::string _rendgrid);
-        bool hasRendgrid();
-        void removeRendgrid();
-
-/* include <rendgridmixin> */
 
     private:
         MeiElement *b;

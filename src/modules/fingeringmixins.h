@@ -35,7 +35,7 @@ class FingGrpLogMixIn {
     public:
         explicit FingGrpLogMixIn(MeiElement *b);
         virtual ~FingGrpLogMixIn();
-        /** \brief Records the appearance and usually the function of the bar line.
+        /** \brief Indicates to what degree the harmonic label is supported by the notation.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -43,23 +43,6 @@ class FingGrpLogMixIn {
         void removeForm();
 
 /* include <formmixin> */
-
-    private:
-        MeiElement *b;
-};
-
-class FingGrpVisMixIn {
-    public:
-        explicit FingGrpVisMixIn(MeiElement *b);
-        virtual ~FingGrpVisMixIn();
-        /** \brief Describes the rotation or reflection of the base symbol.
-         */
-        MeiAttribute* getOrient();
-        void setOrient(std::string _orient);
-        bool hasOrient();
-        void removeOrient();
-
-/* include <orientmixin> */
 
     private:
         MeiElement *b;

@@ -31,31 +31,5 @@ void mei::FingGrpLogMixIn::removeForm() {
 };
 
 /* include <formmixin> */
-mei::FingGrpVisMixIn::FingGrpVisMixIn(MeiElement *b) {
-    this->b = b;
-};
-
-mei::FingGrpVisMixIn::~FingGrpVisMixIn() {}
-MeiAttribute* mei::FingGrpVisMixIn::getOrient() {
-    if (!b->hasAttribute("orient")) {
-        return NULL;
-    }
-    return b->getAttribute("orient");
-};
-
-void mei::FingGrpVisMixIn::setOrient(std::string _orient) {
-    MeiAttribute *a = new MeiAttribute("orient", _orient);
-    b->addAttribute(a);
-};
-
-bool mei::FingGrpVisMixIn::hasOrient() {
-    return b->hasAttribute("orient");
-};
-
-void mei::FingGrpVisMixIn::removeOrient() {
-    b->removeAttribute("orient");
-};
-
-/* include <orientmixin> */
 
 

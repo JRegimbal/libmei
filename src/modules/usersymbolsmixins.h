@@ -31,13 +31,13 @@
 #include <string>
 
 namespace mei {
-class AltsymMixIn {
+class AltSymMixIn {
     public:
-        explicit AltsymMixIn(MeiElement *b);
-        virtual ~AltsymMixIn();
+        explicit AltSymMixIn(MeiElement *b);
+        virtual ~AltSymMixIn();
         /** \brief Provides a way of pointing to a user-defined symbol.
          * 
-         *  It must contain an ID of a <symbolDef> element elsewhere in the document.
+         *  It must contain a reference to an ID of a
          */
         MeiAttribute* getAltsym();
         void setAltsym(std::string _altsym);
@@ -45,6 +45,57 @@ class AltsymMixIn {
         void removeAltsym();
 
 /* include <altsymmixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class AnchoredTextLogMixIn {
+    public:
+        explicit AnchoredTextLogMixIn(MeiElement *b);
+        virtual ~AnchoredTextLogMixIn();
+        /** \brief Function of the meter signature group.
+         */
+        MeiAttribute* getFunc();
+        void setFunc(std::string _func);
+        bool hasFunc();
+        void removeFunc();
+
+/* include <funcmixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class CurveLogMixIn {
+    public:
+        explicit CurveLogMixIn(MeiElement *b);
+        virtual ~CurveLogMixIn();
+        /** \brief Function of the meter signature group.
+         */
+        MeiAttribute* getFunc();
+        void setFunc(std::string _func);
+        bool hasFunc();
+        void removeFunc();
+
+/* include <funcmixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class LineLogMixIn {
+    public:
+        explicit LineLogMixIn(MeiElement *b);
+        virtual ~LineLogMixIn();
+        /** \brief Function of the meter signature group.
+         */
+        MeiAttribute* getFunc();
+        void setFunc(std::string _func);
+        bool hasFunc();
+        void removeFunc();
+
+/* include <funcmixin> */
 
     private:
         MeiElement *b;

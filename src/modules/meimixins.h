@@ -31,10 +31,10 @@
 #include <string>
 
 namespace mei {
-class NotationtypeMixIn {
+class NotationTypeMixIn {
     public:
-        explicit NotationtypeMixIn(MeiElement *b);
-        virtual ~NotationtypeMixIn();
+        explicit NotationTypeMixIn(MeiElement *b);
+        virtual ~NotationTypeMixIn();
         /** \brief Contains classification of the notation contained or described by the element
          *  bearing this attribute.
          */

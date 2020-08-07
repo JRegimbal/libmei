@@ -7,28 +7,36 @@ using mei::MeiAttribute;
 
 mei::AvFile::AvFile() :
     MeiElement("avFile"),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Bibl(this),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Declaring(this),
-    m_Internetmedia(this),
+    m_InternetMedia(this),
     m_Facsimile(this),
-    m_Pointing(this),
-    m_Typed(this)
+    m_MetadataPointing(this),
+    m_Pointing(this)
 {
 }
 REGISTER_DEFINITION(mei::AvFile, "avFile");
 mei::AvFile::~AvFile() {}
 mei::AvFile::AvFile(const AvFile& other) :
     MeiElement(other),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Bibl(this),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Declaring(this),
-    m_Internetmedia(this),
+    m_InternetMedia(this),
     m_Facsimile(this),
-    m_Pointing(this),
-    m_Typed(this)
+    m_MetadataPointing(this),
+    m_Pointing(this)
 {
 }
 
@@ -36,24 +44,34 @@ mei::AvFile::AvFile(const AvFile& other) :
 
 mei::Clip::Clip() :
     MeiElement("clip"),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Datapointing(this),
-    m_Declaring(this),
-    m_Mediabounds(this),
-    m_Startid(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_DataPointing(this),
+    m_MediaBounds(this),
+    m_MetadataPointing(this),
+    m_StartId(this)
 {
 }
 REGISTER_DEFINITION(mei::Clip, "clip");
 mei::Clip::~Clip() {}
 mei::Clip::Clip(const Clip& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Datapointing(this),
-    m_Declaring(this),
-    m_Mediabounds(this),
-    m_Startid(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_DataPointing(this),
+    m_MediaBounds(this),
+    m_MetadataPointing(this),
+    m_StartId(this)
 {
 }
 
@@ -61,18 +79,28 @@ mei::Clip::Clip(const Clip& other) :
 
 mei::Performance::Performance() :
     MeiElement("performance"),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Declaring(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_MetadataPointing(this)
 {
 }
 REGISTER_DEFINITION(mei::Performance, "performance");
 mei::Performance::~Performance() {}
 mei::Performance::Performance(const Performance& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Declaring(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_MetadataPointing(this)
 {
 }
 
@@ -80,24 +108,34 @@ mei::Performance::Performance(const Performance& other) :
 
 mei::Recording::Recording() :
     MeiElement("recording"),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Datapointing(this),
-    m_Declaring(this),
-    m_Mediabounds(this),
-    m_Startid(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_DataPointing(this),
+    m_MediaBounds(this),
+    m_MetadataPointing(this),
+    m_StartId(this)
 {
 }
 REGISTER_DEFINITION(mei::Recording, "recording");
 mei::Recording::~Recording() {}
 mei::Recording::Recording(const Recording& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Datapointing(this),
-    m_Declaring(this),
-    m_Mediabounds(this),
-    m_Startid(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_DataPointing(this),
+    m_MediaBounds(this),
+    m_MetadataPointing(this),
+    m_StartId(this)
 {
 }
 
@@ -105,18 +143,28 @@ mei::Recording::Recording(const Recording& other) :
 
 mei::When::When() :
     MeiElement("when"),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Datapointing(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_DataPointing(this)
 {
 }
 REGISTER_DEFINITION(mei::When, "when");
 mei::When::~When() {}
 mei::When::When(const When& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Datapointing(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_DataPointing(this)
 {
 }
 

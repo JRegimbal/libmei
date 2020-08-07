@@ -21,40 +21,51 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef LYRICSMIXIN_H_
-#define LYRICSMIXIN_H_
+#ifndef STRINGTAB_H_
+#define STRINGTAB_H_
 
 #include "meielement.h"
 #include "exceptions.h"
 /* #include_block */
 
+#include "meicommon.h"
+#include "sharedmixins.h"
 #include <string>
 
-namespace mei {
-class VerseLogMixIn {
-    public:
-        explicit VerseLogMixIn(MeiElement *b);
-        virtual ~VerseLogMixIn();
-        /** \brief Used to indicate a common, usually centered, refrain.
-         */
-        MeiAttribute* getRefrain();
-        void setRefrain(std::string _refrain);
-        bool hasRefrain();
-        void removeRefrain();
-        /** \brief Used to specify a rhythm for the lyric syllables that differs from that of the
-         *  notes on the staff, e.g.
-         * 
-         *  '4,4,4,4' when the rhythm of the notes is '4.,8,4.,8'.
-         */
-        MeiAttribute* getRhythm();
-        void setRhythm(std::string _rhythm);
-        bool hasRhythm();
-        void removeRhythm();
 
-/* include <rhythmmixin> */
+namespace mei {
+/** \brief A barre in a chord tablature grid.
+ */
+class MEI_EXPORT Barre : public MeiElement {
+    public:
+        Barre();
+        Barre(const Barre& other);
+        virtual ~Barre();
+        /** \brief Records the location at which the strings should be stopped against a fret in a
+         *  fretboard diagram.
+         * 
+         *  This may or may not be the same as the actual location on the fretboard of the
+         *  instrument in performance.
+         */
+        MeiAttribute* getFret();
+        void setFret(std::string _fret);
+        bool hasFret();
+        void removeFret();
+
+/* include <barre> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        StartEndIdMixIn    m_StartEndId;
+        StartIdMixIn    m_StartId;
 
     private:
-        MeiElement *b;
+        REGISTER_DECLARATION(Barre);
 };
 }
-#endif  // LYRICSMIXIN_H_
+#endif  // STRINGTAB_H_

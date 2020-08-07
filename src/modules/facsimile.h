@@ -33,7 +33,7 @@
 
 
 namespace mei {
-/** \brief Contains a representation of some written source in the form of a set of images
+/** \brief Contains a representation of a written source in the form of a set of images
  *  rather than as transcribed or encoded text.
  */
 class MEI_EXPORT Facsimile : public MeiElement {
@@ -44,9 +44,14 @@ class MEI_EXPORT Facsimile : public MeiElement {
 
 /* include <facsimile> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        DeclaringMixIn    m_Declaring;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        MetadataPointingMixIn    m_MetadataPointing;
 
     private:
         REGISTER_DECLARATION(Facsimile);
@@ -64,13 +69,17 @@ class MEI_EXPORT Surface : public MeiElement {
 
 /* include <surface> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        CoordinatedMixIn    m_Coordinated;
-        DatapointingMixIn    m_Datapointing;
-        DeclaringMixIn    m_Declaring;
-        StartidMixIn    m_Startid;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        CoordinatedMixIn    m_Coordinated;
+        DataPointingMixIn    m_DataPointing;
+        MetadataPointingMixIn    m_MetadataPointing;
+        StartIdMixIn    m_StartId;
 
     private:
         REGISTER_DECLARATION(Surface);
@@ -86,11 +95,15 @@ class MEI_EXPORT Zone : public MeiElement {
 
 /* include <zone> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        CoordinatedMixIn    m_Coordinated;
-        DatapointingMixIn    m_Datapointing;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        CoordinatedMixIn    m_Coordinated;
+        DataPointingMixIn    m_DataPointing;
 
     private:
         REGISTER_DECLARATION(Zone);

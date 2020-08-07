@@ -5,123 +5,96 @@
 using std::string;
 using mei::MeiAttribute;
 
-mei::Barre::Barre() :
-    MeiElement("barre"),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Fretlocation(this),
-    m_Startendid(this),
-    m_Startid(this)
-{
-}
-REGISTER_DEFINITION(mei::Barre, "barre");
-mei::Barre::~Barre() {}
-mei::Barre::Barre(const Barre& other) :
-    MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Fretlocation(this),
-    m_Startendid(this),
-    m_Startid(this)
-{
-}
-
-/* include <barre> */
-
 mei::ChordDef::ChordDef() :
     MeiElement("chordDef"),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_StringtabPosition(this),
+    m_StringtabTuning(this)
 {
 }
 REGISTER_DEFINITION(mei::ChordDef, "chordDef");
 mei::ChordDef::~ChordDef() {}
 mei::ChordDef::ChordDef(const ChordDef& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_StringtabPosition(this),
+    m_StringtabTuning(this)
 {
 }
 
-MeiAttribute* mei::ChordDef::getPos() {
-    if (!hasAttribute("pos")) {
-        return NULL;
-    }
-    return getAttribute("pos");
-};
-
-void mei::ChordDef::setPos(std::string _pos) {
-    MeiAttribute *a = new MeiAttribute("pos", _pos);
-    addAttribute(a);
-};
-
-bool mei::ChordDef::hasPos() {
-    return hasAttribute("pos");
-};
-
-void mei::ChordDef::removePos() {
-    removeAttribute("pos");
-};
 /* include <chordDef> */
 
 mei::ChordMember::ChordMember() :
     MeiElement("chordMember"),
-    m_Common(this),
-    m_CommonPart(this),
-    m_AccidentalPerformed(this),
-    m_Fretlocation(this),
-    m_Intervalharmonic(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_IntervalHarmonic(this),
+    m_AccidentalGestural(this),
     m_Pitch(this),
-    m_Octave(this)
+    m_Octave(this),
+    m_Stringtab(this)
 {
 }
 REGISTER_DEFINITION(mei::ChordMember, "chordMember");
 mei::ChordMember::~ChordMember() {}
 mei::ChordMember::ChordMember(const ChordMember& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
-    m_AccidentalPerformed(this),
-    m_Fretlocation(this),
-    m_Intervalharmonic(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
+    m_IntervalHarmonic(this),
+    m_AccidentalGestural(this),
     m_Pitch(this),
-    m_Octave(this)
+    m_Octave(this),
+    m_Stringtab(this)
 {
 }
 
-MeiAttribute* mei::ChordMember::getFing() {
-    if (!hasAttribute("fing")) {
-        return NULL;
-    }
-    return getAttribute("fing");
-};
-
-void mei::ChordMember::setFing(std::string _fing) {
-    MeiAttribute *a = new MeiAttribute("fing", _fing);
-    addAttribute(a);
-};
-
-bool mei::ChordMember::hasFing() {
-    return hasAttribute("fing");
-};
-
-void mei::ChordMember::removeFing() {
-    removeAttribute("fing");
-};
 /* include <chordMember> */
 
 mei::ChordTable::ChordTable() :
     MeiElement("chordTable"),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 REGISTER_DEFINITION(mei::ChordTable, "chordTable");
 mei::ChordTable::~ChordTable() {}
 mei::ChordTable::ChordTable(const ChordTable& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 
@@ -129,31 +102,36 @@ mei::ChordTable::ChordTable(const ChordTable& other) :
 
 mei::F::F() :
     MeiElement("f"),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Facsimile(this),
-    m_CommonAnl(this),
+    m_DurationGestural(this),
+    m_Timestamp2Gestural(this),
     m_Alignment(this),
-    m_DurationPerformed(this),
+    m_LayerIdent(this),
+    m_PartIdent(this),
     m_Plist(this),
-    m_Targeteval(this),
-    m_TimestampMusical(this),
-    m_TimestampPerformed(this),
-    m_Staffident(this),
-    m_Layerident(this),
-    m_Augmentdots(this),
+    m_StaffIdent(this),
+    m_TargetEval(this),
+    m_TimestampLogical(this),
+    m_TimestampGestural(this),
     m_DurationAdditive(this),
-    m_Startendid(this),
-    m_Startid(this),
-    m_Timestamp2Musical(this),
-    m_Altsym(this),
+    m_StartEndId(this),
+    m_StartId(this),
+    m_Timestamp2Logical(this),
+    m_AltSym(this),
     m_Extender(this),
-    m_Linerend(this),
-    m_LinerendBase(this),
+    m_LineRend(this),
+    m_LineRendBase(this),
     m_Placement(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
+    m_VisualOffsetHo(this),
+    m_VisualOffsetTo(this),
+    m_VisualOffsetVo(this),
     m_Xy(this)
 {
 }
@@ -161,31 +139,36 @@ REGISTER_DEFINITION(mei::F, "f");
 mei::F::~F() {}
 mei::F::F(const F& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Facsimile(this),
-    m_CommonAnl(this),
+    m_DurationGestural(this),
+    m_Timestamp2Gestural(this),
     m_Alignment(this),
-    m_DurationPerformed(this),
+    m_LayerIdent(this),
+    m_PartIdent(this),
     m_Plist(this),
-    m_Targeteval(this),
-    m_TimestampMusical(this),
-    m_TimestampPerformed(this),
-    m_Staffident(this),
-    m_Layerident(this),
-    m_Augmentdots(this),
+    m_StaffIdent(this),
+    m_TargetEval(this),
+    m_TimestampLogical(this),
+    m_TimestampGestural(this),
     m_DurationAdditive(this),
-    m_Startendid(this),
-    m_Startid(this),
-    m_Timestamp2Musical(this),
-    m_Altsym(this),
+    m_StartEndId(this),
+    m_StartId(this),
+    m_Timestamp2Logical(this),
+    m_AltSym(this),
     m_Extender(this),
-    m_Linerend(this),
-    m_LinerendBase(this),
+    m_LineRend(this),
+    m_LineRendBase(this),
     m_Placement(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
+    m_VisualOffsetHo(this),
+    m_VisualOffsetTo(this),
+    m_VisualOffsetVo(this),
     m_Xy(this)
 {
 }
@@ -194,10 +177,13 @@ mei::F::F(const F& other) :
 
 mei::Fb::Fb() :
     MeiElement("fb"),
-    m_Common(this),
-    m_CommonPart(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Facsimile(this)
 {
 }
@@ -205,10 +191,13 @@ REGISTER_DEFINITION(mei::Fb, "fb");
 mei::Fb::~Fb() {}
 mei::Fb::Fb(const Fb& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Facsimile(this)
 {
 }
@@ -217,74 +206,84 @@ mei::Fb::Fb(const Fb& other) :
 
 mei::Harm::Harm() :
     MeiElement("harm"),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Facsimile(this),
     m_HarmLog(this),
+    m_Alignment(this),
+    m_LayerIdent(this),
+    m_PartIdent(this),
     m_Plist(this),
-    m_Targeteval(this),
-    m_TimestampMusical(this),
-    m_TimestampPerformed(this),
-    m_Staffident(this),
-    m_Layerident(this),
-    m_Augmentdots(this),
+    m_StaffIdent(this),
+    m_TargetEval(this),
+    m_TimestampLogical(this),
+    m_TimestampGestural(this),
     m_DurationAdditive(this),
-    m_Startendid(this),
-    m_Startid(this),
-    m_Timestamp2Musical(this),
+    m_StartEndId(this),
+    m_StartId(this),
+    m_Timestamp2Logical(this),
     m_HarmVis(this),
     m_Extender(this),
-    m_Linerend(this),
-    m_LinerendBase(this),
+    m_LineRend(this),
+    m_LineRendBase(this),
     m_Placement(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
-    m_Visualoffset2Ho(this),
-    m_Visualoffset2To(this),
+    m_VisualOffsetHo(this),
+    m_VisualOffsetTo(this),
+    m_VisualOffsetVo(this),
+    m_VisualOffset2Ho(this),
+    m_VisualOffset2To(this),
     m_Xy(this),
-    m_DurationPerformed(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
-    m_Intervalharmonic(this),
-    m_Typed(this)
+    m_DurationGestural(this),
+    m_Timestamp2Gestural(this),
+    m_HarmAnl(this),
+    m_IntervalHarmonic(this)
 {
 }
 REGISTER_DEFINITION(mei::Harm, "harm");
 mei::Harm::~Harm() {}
 mei::Harm::Harm(const Harm& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Facsimile(this),
     m_HarmLog(this),
+    m_Alignment(this),
+    m_LayerIdent(this),
+    m_PartIdent(this),
     m_Plist(this),
-    m_Targeteval(this),
-    m_TimestampMusical(this),
-    m_TimestampPerformed(this),
-    m_Staffident(this),
-    m_Layerident(this),
-    m_Augmentdots(this),
+    m_StaffIdent(this),
+    m_TargetEval(this),
+    m_TimestampLogical(this),
+    m_TimestampGestural(this),
     m_DurationAdditive(this),
-    m_Startendid(this),
-    m_Startid(this),
-    m_Timestamp2Musical(this),
+    m_StartEndId(this),
+    m_StartId(this),
+    m_Timestamp2Logical(this),
     m_HarmVis(this),
     m_Extender(this),
-    m_Linerend(this),
-    m_LinerendBase(this),
+    m_LineRend(this),
+    m_LineRendBase(this),
     m_Placement(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
-    m_Visualoffset2Ho(this),
-    m_Visualoffset2To(this),
+    m_VisualOffsetHo(this),
+    m_VisualOffsetTo(this),
+    m_VisualOffsetVo(this),
+    m_VisualOffset2Ho(this),
+    m_VisualOffset2To(this),
     m_Xy(this),
-    m_DurationPerformed(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
-    m_Intervalharmonic(this),
-    m_Typed(this)
+    m_DurationGestural(this),
+    m_Timestamp2Gestural(this),
+    m_HarmAnl(this),
+    m_IntervalHarmonic(this)
 {
 }
 

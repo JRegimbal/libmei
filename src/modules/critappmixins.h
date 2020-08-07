@@ -48,26 +48,5 @@ class CritMixIn {
     private:
         MeiElement *b;
 };
-
-class SourceMixIn {
-    public:
-        explicit SourceMixIn(MeiElement *b);
-        virtual ~SourceMixIn();
-        /** \brief Contains a list of one or more pointers indicating the sources which attest to a
-         *  given reading.
-         * 
-         *  Each value should correspond to the ID of a <source> element located in the
-         *  document header.
-         */
-        MeiAttribute* getSource();
-        void setSource(std::string _source);
-        bool hasSource();
-        void removeSource();
-
-/* include <sourcemixin> */
-
-    private:
-        MeiElement *b;
-};
 }
 #endif  // CRITAPPMIXIN_H_

@@ -66,11 +66,33 @@ class ChannelizedMixIn {
         MeiElement *b;
 };
 
-class MidiinstrumentMixIn {
+class InstrumentIdentMixIn {
     public:
-        explicit MidiinstrumentMixIn(MeiElement *b);
-        virtual ~MidiinstrumentMixIn();
-        /** \brief Sets the MIDI instrument number.
+        explicit InstrumentIdentMixIn(MeiElement *b);
+        virtual ~InstrumentIdentMixIn();
+        /** \brief Provides a way of pointing to a MIDI instrument definition.
+         * 
+         *  It must contain the ID of an
+         */
+        MeiAttribute* getInstr();
+        void setInstr(std::string _instr);
+        bool hasInstr();
+        void removeInstr();
+
+/* include <instrmixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class MidiInstrumentMixIn {
+    public:
+        explicit MidiInstrumentMixIn(MeiElement *b);
+        virtual ~MidiInstrumentMixIn();
+        /** \brief Captures the General MIDI instrument number.
+         * 
+         *  Use an integer for a 0-based value. An integer preceded by "in" indicates a
+         *  1-based value.
          */
         MeiAttribute* getMidiInstrnum();
         void setMidiInstrnum(std::string _midiinstrnum);
@@ -84,12 +106,26 @@ class MidiinstrumentMixIn {
         void removeMidiInstrname();
         /** \brief Sets the instrument's position in a stereo field.
          * 
-         *  Values of 0 and 1 both pan left, 127 pans right, and 64 pans to the center.
+         *  MIDI values of 0 and 1 both pan left, 127 or 128 pans right, and 63 or 64 pans
+         *  to the center. Positve percentage values pan to the right, negative ones to the
+         *  left. 0% is centered.
          */
         MeiAttribute* getMidiPan();
         void setMidiPan(std::string _midipan);
         bool hasMidiPan();
         void removeMidiPan();
+        /** \brief Records a non-General MIDI patch/instrument name.
+         */
+        MeiAttribute* getMidiPatchname();
+        void setMidiPatchname(std::string _midipatchname);
+        bool hasMidiPatchname();
+        void removeMidiPatchname();
+        /** \brief Records a non-General MIDI patch/instrument number.
+         */
+        MeiAttribute* getMidiPatchnum();
+        void setMidiPatchnum(std::string _midipatchnum);
+        bool hasMidiPatchnum();
+        void removeMidiPatchnum();
         /** \brief Sets the instrument's volume.
          */
         MeiAttribute* getMidiVolume();
@@ -103,13 +139,11 @@ class MidiinstrumentMixIn {
         MeiElement *b;
 };
 
-class MidinumberMixIn {
+class MidiNumberMixIn {
     public:
-        explicit MidinumberMixIn(MeiElement *b);
-        virtual ~MidinumberMixIn();
-        /** \brief Along with numbase, describes duration as a ratio.
-         * 
-         *  num is the first value in the ratio, while numbase is the second.
+        explicit MidiNumberMixIn(MeiElement *b);
+        virtual ~MidiNumberMixIn();
+        /** \brief Records a number or count accompanying a notational feature.
          */
         MeiAttribute* getNum();
         void setNum(std::string _num);
@@ -122,10 +156,10 @@ class MidinumberMixIn {
         MeiElement *b;
 };
 
-class MiditempoMixIn {
+class MidiTempoMixIn {
     public:
-        explicit MiditempoMixIn(MeiElement *b);
-        virtual ~MiditempoMixIn();
+        explicit MidiTempoMixIn(MeiElement *b);
+        virtual ~MidiTempoMixIn();
         /** \brief Captures the number of *quarter notes* per minute.
          * 
          *  In MIDI, a beat is always defined as a quarter note, *not the numerator of the
@@ -152,10 +186,10 @@ class MiditempoMixIn {
         MeiElement *b;
 };
 
-class MidivalueMixIn {
+class MidiValueMixIn {
     public:
-        explicit MidivalueMixIn(MeiElement *b);
-        virtual ~MidivalueMixIn();
+        explicit MidiValueMixIn(MeiElement *b);
+        virtual ~MidiValueMixIn();
         /** \brief MIDI number.
          */
         MeiAttribute* getVal();
@@ -169,10 +203,10 @@ class MidivalueMixIn {
         MeiElement *b;
 };
 
-class Midivalue2MixIn {
+class MidiValue2MixIn {
     public:
-        explicit Midivalue2MixIn(MeiElement *b);
-        virtual ~Midivalue2MixIn();
+        explicit MidiValue2MixIn(MeiElement *b);
+        virtual ~MidiValue2MixIn();
         /** \brief MIDI number.
          */
         MeiAttribute* getVal2();
@@ -186,10 +220,10 @@ class Midivalue2MixIn {
         MeiElement *b;
 };
 
-class MidivelocityMixIn {
+class MidiVelocityMixIn {
     public:
-        explicit MidivelocityMixIn(MeiElement *b);
-        virtual ~MidivelocityMixIn();
+        explicit MidiVelocityMixIn(MeiElement *b);
+        virtual ~MidiVelocityMixIn();
         /** \brief MIDI Note-on/off velocity.
          */
         MeiAttribute* getVel();
@@ -203,10 +237,10 @@ class MidivelocityMixIn {
         MeiElement *b;
 };
 
-class TimebaseMixIn {
+class TimeBaseMixIn {
     public:
-        explicit TimebaseMixIn(MeiElement *b);
-        virtual ~TimebaseMixIn();
+        explicit TimeBaseMixIn(MeiElement *b);
+        virtual ~TimeBaseMixIn();
         /** \brief Indicates the number of pulses (sometimes referred to as ticks or divisions) per
          *  quarter note.
          * 

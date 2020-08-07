@@ -30,17 +30,17 @@
 
 #include "meicommon.h"
 #include "sharedmixins.h"
-#include "facsimilemixins.h"
 #include "headermixins.h"
+#include "facsimilemixins.h"
+#include "geneticmixins.h"
 #include "mensuralmixins.h"
-#include "critappmixins.h"
-#include "edittransmixins.h"
+#include "msdescmixins.h"
 #include <string>
 
 
 namespace mei {
-/** \brief (access restriction) – Describes the conditions that affect the accessibility
- *  of material.
+/** \brief (access restriction) – Describes the conditions that affect the accessibility of
+ *  material.
  */
 class MEI_EXPORT AccessRestrict : public MeiElement {
     public:
@@ -50,8 +50,15 @@ class MEI_EXPORT AccessRestrict : public MeiElement {
 
 /* include <accessRestrict> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -59,8 +66,34 @@ class MEI_EXPORT AccessRestrict : public MeiElement {
         REGISTER_DECLARATION(AccessRestrict);
 };
 
-/** \brief (alternative identifier) – May contain a bibliographic identifier that does
- *  not fit within the meiHead element's id attribute, for example because the
+/** \brief Records information concerning the process by which an item was acquired by the
+ *  holding institution.
+ */
+class MEI_EXPORT Acquisition : public MeiElement {
+    public:
+        Acquisition();
+        Acquisition(const Acquisition& other);
+        virtual ~Acquisition();
+
+/* include <acquisition> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
+        DatableMixIn    m_Datable;
+        LangMixIn    m_Lang;
+
+    private:
+        REGISTER_DECLARATION(Acquisition);
+};
+
+/** \brief (alternative identifier) – May contain a bibliographic identifier that does not
+ *  fit within the meiHead element's id attribute, for example because the
  *  identifier does not fit the definition of an XML id or because multiple
  *  identifiers are needed.
  */
@@ -72,10 +105,14 @@ class MEI_EXPORT AltId : public MeiElement {
 
 /* include <altId> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
 
     private:
         REGISTER_DECLARATION(AltId);
@@ -92,8 +129,13 @@ class MEI_EXPORT AppInfo : public MeiElement {
 
 /* include <appInfo> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(AppInfo);
@@ -117,13 +159,52 @@ class MEI_EXPORT Application : public MeiElement {
 
 /* include <application> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        DatableMixIn    m_Datable;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        DatableMixIn    m_Datable;
 
     private:
         REGISTER_DECLARATION(Application);
+};
+
+/** \brief Documents the usage of a specific attribute of the element.
+ */
+class MEI_EXPORT AttUsage : public MeiElement {
+    public:
+        AttUsage();
+        AttUsage(const AttUsage& other);
+        virtual ~AttUsage();
+        /** \brief Name of the attribute.
+         */
+        MeiAttribute* getName();
+        void setName(std::string _name);
+        bool hasName();
+        void removeName();
+        /** \brief Circumstances in which the element appears, an XPath expression.
+         */
+        MeiAttribute* getContext();
+        void setContext(std::string _context);
+        bool hasContext();
+        void removeContext();
+
+/* include <attUsage> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(AttUsage);
 };
 
 /** \brief Defines the class of user for which the work is intended, as defined by age
@@ -138,9 +219,15 @@ class MEI_EXPORT Audience : public MeiElement {
 
 /* include <audience> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -159,13 +246,44 @@ class MEI_EXPORT Availability : public MeiElement {
 
 /* include <availability> */
 
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
 
     private:
         REGISTER_DECLARATION(Availability);
+};
+
+/** \brief Describes a folded sheet of paper.
+ */
+class MEI_EXPORT Bifolium : public MeiElement {
+    public:
+        Bifolium();
+        Bifolium(const Bifolium& other);
+        virtual ~Bifolium();
+
+/* include <bifolium> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        HeightMixIn    m_Height;
+        WidthMixIn    m_Width;
+        MeasurementMixIn    m_Measurement;
+        BifoliumSurfacesMixIn    m_BifoliumSurfaces;
+
+    private:
+        REGISTER_DECLARATION(Bifolium);
 };
 
 /** \brief Contains the primary statement of responsibility given for a work on its title
@@ -179,8 +297,13 @@ class MEI_EXPORT Byline : public MeiElement {
 
 /* include <byline> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -201,9 +324,15 @@ class MEI_EXPORT CaptureMode : public MeiElement {
 
 /* include <captureMode> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -211,8 +340,8 @@ class MEI_EXPORT CaptureMode : public MeiElement {
         REGISTER_DECLARATION(CaptureMode);
 };
 
-/** \brief (carrier form) – The specific class of material to which the physical carrier
- *  of the source/manifestation belongs (e.g., sound cassette, videodisc, microfilm
+/** \brief (carrier form) – The specific class of material to which the physical carrier of
+ *  the source/manifestation belongs (e.g., sound cassette, videodisc, microfilm
  *  cartridge, transparency, etc.).
  * 
  *  The carrier for a manifestation comprising multiple physical components may
@@ -227,14 +356,77 @@ class MEI_EXPORT CarrierForm : public MeiElement {
 
 /* include <carrierForm> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(CarrierForm);
+};
+
+/** \brief (category relationship) – Contains the name of a related category.
+ */
+class MEI_EXPORT CatRel : public MeiElement {
+    public:
+        CatRel();
+        CatRel(const CatRel& other);
+        virtual ~CatRel();
+        /** \brief Provides a description of the relationship between the current and the target
+         *  categories.
+         */
+        MeiAttribute* getType();
+        void setType(std::string _type);
+        bool hasType();
+        void removeType();
+
+/* include <catRel> */
+
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
+        BasicMixIn    m_Basic;
+        BiblMixIn    m_Bibl;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+
+    private:
+        REGISTER_DECLARATION(CatRel);
+};
+
+/** \brief Contains an individual descriptive category in a user-defined taxonomy, possibly
+ *  nested within a superordinate category.
+ */
+class MEI_EXPORT Category : public MeiElement {
+    public:
+        Category();
+        Category(const Category& other);
+        virtual ~Category();
+
+/* include <category> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
+        BiblMixIn    m_Bibl;
+        DataPointingMixIn    m_DataPointing;
+
+    private:
+        REGISTER_DECLARATION(Category);
 };
 
 /** \brief Individual change within the revision description.
@@ -247,12 +439,15 @@ class MEI_EXPORT Change : public MeiElement {
 
 /* include <change> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        BiblMixIn    m_Bibl;
-        DatableMixIn    m_Datable;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
+        DatableMixIn    m_Datable;
 
     private:
         REGISTER_DECLARATION(Change);
@@ -268,8 +463,13 @@ class MEI_EXPORT ChangeDesc : public MeiElement {
 
 /* include <changeDesc> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -277,27 +477,27 @@ class MEI_EXPORT ChangeDesc : public MeiElement {
         REGISTER_DECLARATION(ChangeDesc);
 };
 
-/** \brief (classification code) – Holds a citation to the source of controlled-
- *  vocabulary terms used in the <termList> element; for example, Library of
- *  Congress Subject Headings (LCSH), Library of Congress Classification (LCC),
- *  Library of Congress Name Authority File (LCNAF), or other thesaurus or ontology.
+/** \brief Groups information which describes the nature or topic of an entity.
  */
-class MEI_EXPORT ClassCode : public MeiElement {
+class MEI_EXPORT ClassDecls : public MeiElement {
     public:
-        ClassCode();
-        ClassCode(const ClassCode& other);
-        virtual ~ClassCode();
+        ClassDecls();
+        ClassDecls(const ClassDecls& other);
+        virtual ~ClassDecls();
 
-/* include <classCode> */
+/* include <classDecls> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        AuthorizedMixIn    m_Authorized;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        LangMixIn    m_Lang;
 
     private:
-        REGISTER_DECLARATION(ClassCode);
+        REGISTER_DECLARATION(ClassDecls);
 };
 
 /** \brief Groups information which describes the nature or topic of an entity.
@@ -310,13 +510,41 @@ class MEI_EXPORT Classification : public MeiElement {
 
 /* include <classification> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
 
     private:
         REGISTER_DECLARATION(Classification);
+};
+
+/** \brief Container for intellectual or physical component parts of a bibliographic
+ *  entity.
+ */
+class MEI_EXPORT ComponentList : public MeiElement {
+    public:
+        ComponentList();
+        ComponentList(const ComponentList& other);
+        virtual ~ComponentList();
+
+/* include <componentList> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+
+    private:
+        REGISTER_DECLARATION(ComponentList);
 };
 
 /** \brief The physical condition of an item, particularly any variances between the
@@ -331,8 +559,13 @@ class MEI_EXPORT Condition : public MeiElement {
 
 /* include <condition> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -350,16 +583,21 @@ class MEI_EXPORT ContentItem : public MeiElement {
 
 /* include <contentItem> */
 
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
         LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(ContentItem);
 };
 
-/** \brief Description of the material contained within a resource.
+/** \brief List of the material contained within a resource.
  */
 class MEI_EXPORT Contents : public MeiElement {
     public:
@@ -369,8 +607,13 @@ class MEI_EXPORT Contents : public MeiElement {
 
 /* include <contents> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         PointingMixIn    m_Pointing;
 
@@ -392,9 +635,15 @@ class MEI_EXPORT Context : public MeiElement {
 
 /* include <context> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -418,40 +667,134 @@ class MEI_EXPORT Correction : public MeiElement {
 
 /* include <correction> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
         LangMixIn    m_Lang;
-        RegularmethodMixIn    m_Regularmethod;
+        RegularMethodMixIn    m_RegularMethod;
 
     private:
         REGISTER_DECLARATION(Correction);
 };
 
-/** \brief Information about the physical size of a bibliographic source; usually includes
- *  numerical data.
+/** \brief A cutout is a section of a document sheet that has been removed and is now
+ *  missing.
  */
-class MEI_EXPORT Dimensions : public MeiElement {
+class MEI_EXPORT Cutout : public MeiElement {
     public:
-        Dimensions();
-        Dimensions(const Dimensions& other);
-        virtual ~Dimensions();
+        Cutout();
+        Cutout(const Cutout& other);
+        virtual ~Cutout();
+        /** \brief Describes the position of the cutout on the parent folium / bifolium.
+         */
+        MeiAttribute* getRemovedFrom();
+        void setRemovedFrom(std::string _removedfrom);
+        bool hasRemovedFrom();
+        void removeRemovedFrom();
+        /** \brief Describes the method of removing the cutout.
+         */
+        MeiAttribute* getRemovedBy();
+        void setRemovedBy(std::string _removedby);
+        bool hasRemovedBy();
+        void removeRemovedBy();
 
-/* include <dimensions> */
+/* include <cutout> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        BiblMixIn    m_Bibl;
-        LangMixIn    m_Lang;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        HeightMixIn    m_Height;
+        WidthMixIn    m_Width;
+        EvidenceMixIn    m_Evidence;
         MeasurementMixIn    m_Measurement;
+        GeneticStateMixIn    m_GeneticState;
+        HandIdentMixIn    m_HandIdent;
+        MetadataPointingMixIn    m_MetadataPointing;
+        SequenceMixIn    m_Sequence;
+        XyMixIn    m_Xy;
 
     private:
-        REGISTER_DECLARATION(Dimensions);
+        REGISTER_DECLARATION(Cutout);
 };
 
-/** \brief (edition statement) – Container for meta-data pertaining to a particular
- *  edition of the material being described.
+/** \brief Contains a dedicatory statement.
+ */
+class MEI_EXPORT Dedication : public MeiElement {
+    public:
+        Dedication();
+        Dedication(const Dedication& other);
+        virtual ~Dedication();
+
+/* include <dedication> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
+        FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
+
+    private:
+        REGISTER_DECLARATION(Dedication);
+};
+
+/** \brief (domains declaration) – Indicates which domains are included in the encoding.
+ */
+class MEI_EXPORT DomainsDecl : public MeiElement {
+    public:
+        DomainsDecl();
+        DomainsDecl(const DomainsDecl& other);
+        virtual ~DomainsDecl();
+        /** \brief 
+         */
+        MeiAttribute* getAnl();
+        void setAnl(std::string _anl);
+        bool hasAnl();
+        void removeAnl();
+        /** \brief 
+         */
+        MeiAttribute* getGes();
+        void setGes(std::string _ges);
+        bool hasGes();
+        void removeGes();
+        /** \brief 
+         */
+        MeiAttribute* getVis();
+        void setVis(std::string _vis);
+        bool hasVis();
+        void removeVis();
+
+/* include <domainsDecl> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(DomainsDecl);
+};
+
+/** \brief (edition statement) – Container for meta-data pertaining to a particular edition
+ *  of the material being described.
  */
 class MEI_EXPORT EditionStmt : public MeiElement {
     public:
@@ -461,8 +804,13 @@ class MEI_EXPORT EditionStmt : public MeiElement {
 
 /* include <editionStmt> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -481,10 +829,15 @@ class MEI_EXPORT EditorialDecl : public MeiElement {
 
 /* include <editorialDecl> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
         LangMixIn    m_Lang;
 
     private:
@@ -503,16 +856,21 @@ class MEI_EXPORT EncodingDesc : public MeiElement {
 
 /* include <encodingDesc> */
 
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(EncodingDesc);
 };
 
-/** \brief (exhibition history) – A record of public exhibitions, including dates,
- *  venues, etc.
+/** \brief (exhibition history) – A record of public exhibitions, including dates, venues,
+ *  etc.
  */
 class MEI_EXPORT ExhibHist : public MeiElement {
     public:
@@ -522,8 +880,13 @@ class MEI_EXPORT ExhibHist : public MeiElement {
 
 /* include <exhibHist> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -531,8 +894,7 @@ class MEI_EXPORT ExhibHist : public MeiElement {
         REGISTER_DECLARATION(ExhibHist);
 };
 
-/** \brief (extended metadata) – Provides a container element for non-MEI metadata
- *  formats.
+/** \brief (extended metadata) – Provides a container element for non-MEI metadata formats.
  */
 class MEI_EXPORT ExtMeta : public MeiElement {
     public:
@@ -542,8 +904,14 @@ class MEI_EXPORT ExtMeta : public MeiElement {
 
 /* include <extMeta> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         WhitespaceMixIn    m_Whitespace;
 
     private:
@@ -563,8 +931,13 @@ class MEI_EXPORT FileChar : public MeiElement {
 
 /* include <fileChar> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -572,8 +945,7 @@ class MEI_EXPORT FileChar : public MeiElement {
         REGISTER_DECLARATION(FileChar);
 };
 
-/** \brief (file description) – Contains a full bibliographic description of the MEI
- *  file.
+/** \brief (file description) – Contains a full bibliographic description of the MEI file.
  */
 class MEI_EXPORT FileDesc : public MeiElement {
     public:
@@ -583,9 +955,14 @@ class MEI_EXPORT FileDesc : public MeiElement {
 
 /* include <fileDesc> */
 
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(FileDesc);
@@ -603,13 +980,68 @@ class MEI_EXPORT Fingerprint : public MeiElement {
 
 /* include <fingerprint> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
 
     private:
         REGISTER_DECLARATION(Fingerprint);
+};
+
+/** \brief Describes the order of folia and bifolia making up the text block of a
+ *  manuscript or print.
+ */
+class MEI_EXPORT FoliaDesc : public MeiElement {
+    public:
+        FoliaDesc();
+        FoliaDesc(const FoliaDesc& other);
+        virtual ~FoliaDesc();
+
+/* include <foliaDesc> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+
+    private:
+        REGISTER_DECLARATION(FoliaDesc);
+};
+
+/** \brief Describes a single leaf of paper.
+ */
+class MEI_EXPORT Folium : public MeiElement {
+    public:
+        Folium();
+        Folium(const Folium& other);
+        virtual ~Folium();
+
+/* include <folium> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        HeightMixIn    m_Height;
+        WidthMixIn    m_Width;
+        MeasurementMixIn    m_Measurement;
+        FoliumSurfacesMixIn    m_FoliumSurfaces;
+
+    private:
+        REGISTER_DECLARATION(Folium);
 };
 
 /** \brief Defines a distinct scribe or handwriting style.
@@ -628,12 +1060,17 @@ class MEI_EXPORT Hand : public MeiElement {
 
 /* include <hand> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
+        EvidenceMixIn    m_Evidence;
         LangMixIn    m_Lang;
         MediumMixIn    m_Medium;
-        ResponsibilityMixIn    m_Responsibility;
 
     private:
         REGISTER_DECLARATION(Hand);
@@ -649,20 +1086,21 @@ class MEI_EXPORT HandList : public MeiElement {
 
 /* include <handList> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        BiblMixIn    m_Bibl;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
 
     private:
         REGISTER_DECLARATION(HandList);
 };
 
-/** \brief Provides a container for information about the history of a resource.
- * 
- *  To facilitate efficient data interchange, basic information about the
- *  circumstances surrounding the creation of bibliographic resources should be
- *  recorded within the creation element.
+/** \brief Provides a container for information about the history of a resource other than
+ *  the circumstances of its creation.
  */
 class MEI_EXPORT History : public MeiElement {
     public:
@@ -672,8 +1110,13 @@ class MEI_EXPORT History : public MeiElement {
 
 /* include <history> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
 
     private:
@@ -687,7 +1130,7 @@ class MEI_EXPORT IncipCode : public MeiElement {
         IncipCode();
         IncipCode(const IncipCode& other);
         virtual ~IncipCode();
-        /** \brief Records the appearance and usually the function of the bar line.
+        /** \brief Indicates to what degree the harmonic label is supported by the notation.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -696,10 +1139,15 @@ class MEI_EXPORT IncipCode : public MeiElement {
 
 /* include <incipCode> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        InternetmediaMixIn    m_Internetmedia;
+        InternetMediaMixIn    m_InternetMedia;
         PointingMixIn    m_Pointing;
         WhitespaceMixIn    m_Whitespace;
 
@@ -717,12 +1165,17 @@ class MEI_EXPORT IncipText : public MeiElement {
 
 /* include <incipText> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
         PointingMixIn    m_Pointing;
-        InternetmediaMixIn    m_Internetmedia;
+        InternetMediaMixIn    m_InternetMedia;
 
     private:
         REGISTER_DECLARATION(IncipText);
@@ -739,8 +1192,13 @@ class MEI_EXPORT Inscription : public MeiElement {
 
 /* include <inscription> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -759,10 +1217,15 @@ class MEI_EXPORT Interpretation : public MeiElement {
 
 /* include <interpretation> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
         LangMixIn    m_Lang;
 
     private:
@@ -776,14 +1239,24 @@ class MEI_EXPORT Key : public MeiElement {
         Key();
         Key(const Key& other);
         virtual ~Key();
+        /** \brief Indicates major, minor, or other tonality.
+         */
+        MeiAttribute* getMode();
+        void setMode(std::string _mode);
+        bool hasMode();
+        void removeMode();
 
 /* include <key> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        BiblMixIn    m_Bibl;
-        KeySigLogMixIn    m_KeySigLog;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AccidentalMixIn    m_Accidental;
+        BiblMixIn    m_Bibl;
         PitchMixIn    m_Pitch;
 
     private:
@@ -801,10 +1274,15 @@ class MEI_EXPORT LangUsage : public MeiElement {
 
 /* include <langUsage> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
 
     private:
         REGISTER_DECLARATION(LangUsage);
@@ -820,9 +1298,15 @@ class MEI_EXPORT Language : public MeiElement {
 
 /* include <language> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -838,8 +1322,8 @@ class MEI_EXPORT MeiHead : public MeiElement {
         MeiHead();
         MeiHead(const MeiHead& other);
         virtual ~MeiHead();
-        /** \brief Characterizes the element in some sense, using any convenient classification
-         *  scheme or typology.
+        /** \brief Provides a description of the relationship between the current and the target
+         *  categories.
          */
         MeiAttribute* getType();
         void setType(std::string _type);
@@ -848,11 +1332,12 @@ class MEI_EXPORT MeiHead : public MeiElement {
 
 /* include <meiHead> */
 
+        BasicMixIn    m_Basic;
         BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        LabelledMixIn    m_Labelled;
         LangMixIn    m_Lang;
-        MeiversionMixIn    m_Meiversion;
+        MeiVersionMixIn    m_MeiVersion;
+        ResponsibilityMixIn    m_Responsibility;
 
     private:
         REGISTER_DECLARATION(MeiHead);
@@ -868,14 +1353,19 @@ class MEI_EXPORT Mensuration : public MeiElement {
 
 /* include <mensuration> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
         MensurLogMixIn    m_MensurLog;
         DurationRatioMixIn    m_DurationRatio;
-        SlashcountMixIn    m_Slashcount;
         MensuralSharedMixIn    m_MensuralShared;
+        SlashCountMixIn    m_SlashCount;
 
     private:
         REGISTER_DECLARATION(Mensuration);
@@ -891,14 +1381,55 @@ class MEI_EXPORT Meter : public MeiElement {
 
 /* include <meter> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
         MeterSigLogMixIn    m_MeterSigLog;
 
     private:
         REGISTER_DECLARATION(Meter);
+};
+
+/** \brief Supplies the formal name of the namespace to which the elements documented by
+ *  its children belong.
+ */
+class MEI_EXPORT Namespace : public MeiElement {
+    public:
+        Namespace();
+        Namespace(const Namespace& other);
+        virtual ~Namespace();
+        /** \brief Name of the attribute.
+         */
+        MeiAttribute* getName();
+        void setName(std::string _name);
+        bool hasName();
+        void removeName();
+        /** \brief Prefix associated with the formal identifier.
+         */
+        MeiAttribute* getPrefix();
+        void setPrefix(std::string _prefix);
+        bool hasPrefix();
+        void removePrefix();
+
+/* include <namespace> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(Namespace);
 };
 
 /** \brief Indicates the extent of normalization or regularization of the original source
@@ -912,12 +1443,17 @@ class MEI_EXPORT Normalization : public MeiElement {
 
 /* include <normalization> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
         LangMixIn    m_Lang;
-        RegularmethodMixIn    m_Regularmethod;
+        RegularMethodMixIn    m_RegularMethod;
 
     private:
         REGISTER_DECLARATION(Normalization);
@@ -934,8 +1470,13 @@ class MEI_EXPORT NotesStmt : public MeiElement {
 
 /* include <notesStmt> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
 
     private:
@@ -953,8 +1494,13 @@ class MEI_EXPORT OtherChar : public MeiElement {
 
 /* include <otherChar> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -962,9 +1508,50 @@ class MEI_EXPORT OtherChar : public MeiElement {
         REGISTER_DECLARATION(OtherChar);
 };
 
-/** \brief (performance duration) – Used to express the duration of performance of
- *  printed or manuscript music or the playing time for a sound recording,
- *  videorecording, etc.
+/** \brief Describes a physical writing surface attached to the original document.
+ */
+class MEI_EXPORT Patch : public MeiElement {
+    public:
+        Patch();
+        Patch(const Patch& other);
+        virtual ~Patch();
+        /** \brief Describes the position of the patch on the parent folium / bifolium.
+         */
+        MeiAttribute* getAttachedTo();
+        void setAttachedTo(std::string _attachedto);
+        bool hasAttachedTo();
+        void removeAttachedTo();
+        /** \brief Describes the method of attachment of the patch.
+         */
+        MeiAttribute* getAttachedBy();
+        void setAttachedBy(std::string _attachedby);
+        bool hasAttachedBy();
+        void removeAttachedBy();
+
+/* include <patch> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        EvidenceMixIn    m_Evidence;
+        MeasurementMixIn    m_Measurement;
+        GeneticStateMixIn    m_GeneticState;
+        HandIdentMixIn    m_HandIdent;
+        MetadataPointingMixIn    m_MetadataPointing;
+        SequenceMixIn    m_Sequence;
+        XyMixIn    m_Xy;
+
+    private:
+        REGISTER_DECLARATION(Patch);
+};
+
+/** \brief (performance duration) – Used to express the duration of performance of printed
+ *  or manuscript music or the playing time for a sound recording, videorecording,
+ *  etc.
  */
 class MEI_EXPORT PerfDuration : public MeiElement {
     public:
@@ -980,8 +1567,13 @@ class MEI_EXPORT PerfDuration : public MeiElement {
 
 /* include <perfDuration> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -1001,10 +1593,16 @@ class MEI_EXPORT PerfMedium : public MeiElement {
 
 /* include <perfMedium> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        BiblMixIn    m_Bibl;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
+        BiblMixIn    m_Bibl;
 
     private:
         REGISTER_DECLARATION(PerfMedium);
@@ -1018,11 +1616,7 @@ class MEI_EXPORT PerfRes : public MeiElement {
         PerfRes();
         PerfRes(const PerfRes& other);
         virtual ~PerfRes();
-        /** \brief Captures the number of beats in a measure, that is, the top number of the meter
-         *  signature.
-         * 
-         *  It must contain a decimal number or an additive expression that evaluates to a
-         *  decimal number, such as 2+3.
+        /** \brief Indicates the number of performers.
          */
         MeiAttribute* getCount();
         void setCount(std::string _count);
@@ -1039,12 +1633,16 @@ class MEI_EXPORT PerfRes : public MeiElement {
 
 /* include <perfRes> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        AuthorizedMixIn    m_Authorized;
-        BiblMixIn    m_Bibl;
-        CanonicalMixIn    m_Canonical;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         LangMixIn    m_Lang;
@@ -1060,11 +1658,7 @@ class MEI_EXPORT PerfResList : public MeiElement {
         PerfResList();
         PerfResList(const PerfResList& other);
         virtual ~PerfResList();
-        /** \brief Captures the number of beats in a measure, that is, the top number of the meter
-         *  signature.
-         * 
-         *  It must contain a decimal number or an additive expression that evaluates to a
-         *  decimal number, such as 2+3.
+        /** \brief Indicates the number of performers.
          */
         MeiAttribute* getCount();
         void setCount(std::string _count);
@@ -1073,12 +1667,16 @@ class MEI_EXPORT PerfResList : public MeiElement {
 
 /* include <perfResList> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        AuthorizedMixIn    m_Authorized;
-        BiblMixIn    m_Bibl;
-        CanonicalMixIn    m_Canonical;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         LangMixIn    m_Lang;
@@ -1099,8 +1697,13 @@ class MEI_EXPORT PhysDesc : public MeiElement {
 
 /* include <physDesc> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
 
     private:
@@ -1118,10 +1721,16 @@ class MEI_EXPORT PhysMedium : public MeiElement {
 
 /* include <physMedium> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        BiblMixIn    m_Bibl;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
+        BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
     private:
@@ -1140,8 +1749,13 @@ class MEI_EXPORT PlateNum : public MeiElement {
 
 /* include <plateNum> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -1161,8 +1775,13 @@ class MEI_EXPORT PlayingSpeed : public MeiElement {
 
 /* include <playingSpeed> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1177,9 +1796,10 @@ class MEI_EXPORT Price : public MeiElement {
         Price();
         Price(const Price& other);
         virtual ~Price();
-        /** \brief Numeric value capturing a cost.
+        /** \brief Records the amount of detuning.
          * 
-         *  Can only be interpreted in combination with the currency attribute.
+         *  The decimal values should be rendered as a fraction (or an integer plus a
+         *  fraction) along with the bend symbol.
          */
         MeiAttribute* getAmount();
         void setAmount(std::string _amount);
@@ -1194,8 +1814,13 @@ class MEI_EXPORT Price : public MeiElement {
 
 /* include <price> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1217,10 +1842,15 @@ class MEI_EXPORT ProjectDesc : public MeiElement {
 
 /* include <projectDesc> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
         LangMixIn    m_Lang;
 
     private:
@@ -1237,17 +1867,23 @@ class MEI_EXPORT Provenance : public MeiElement {
 
 /* include <provenance> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
+        DatableMixIn    m_Datable;
         LangMixIn    m_Lang;
 
     private:
         REGISTER_DECLARATION(Provenance);
 };
 
-/** \brief (publication statement) – Container for information regarding the publication
- *  or distribution of a bibliographic item, including the publisher's name and
+/** \brief (publication statement) – Container for information regarding the publication or
+ *  distribution of a bibliographic item, including the publisher's name and
  *  address, the date of publication, and other relevant details.
  */
 class MEI_EXPORT PubStmt : public MeiElement {
@@ -1258,8 +1894,13 @@ class MEI_EXPORT PubStmt : public MeiElement {
 
 /* include <pubStmt> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
 
     private:
@@ -1277,8 +1918,13 @@ class MEI_EXPORT RevisionDesc : public MeiElement {
 
 /* include <revisionDesc> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
 
     private:
@@ -1296,10 +1942,15 @@ class MEI_EXPORT SamplingDecl : public MeiElement {
 
 /* include <samplingDecl> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
         LangMixIn    m_Lang;
 
     private:
@@ -1317,9 +1968,15 @@ class MEI_EXPORT ScoreFormat : public MeiElement {
 
 /* include <scoreFormat> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1338,10 +1995,15 @@ class MEI_EXPORT Segmentation : public MeiElement {
 
 /* include <segmentation> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
         LangMixIn    m_Lang;
 
     private:
@@ -1359,8 +2021,13 @@ class MEI_EXPORT SeriesStmt : public MeiElement {
 
 /* include <seriesStmt> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
 
     private:
@@ -1375,9 +2042,7 @@ class MEI_EXPORT SoundChan : public MeiElement {
         SoundChan();
         SoundChan(const SoundChan& other);
         virtual ~SoundChan();
-        /** \brief Along with numbase, describes duration as a ratio.
-         * 
-         *  num is the first value in the ratio, while numbase is the second.
+        /** \brief Records a number or count accompanying a notational feature.
          */
         MeiAttribute* getNum();
         void setNum(std::string _num);
@@ -1386,9 +2051,15 @@ class MEI_EXPORT SoundChan : public MeiElement {
 
 /* include <soundChan> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1407,19 +2078,28 @@ class MEI_EXPORT Source : public MeiElement {
 
 /* include <source> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        ComponentTypeMixIn    m_ComponentType;
+        DataPointingMixIn    m_DataPointing;
         PointingMixIn    m_Pointing;
-        TargetevalMixIn    m_Targeteval;
+        RecordTypeMixIn    m_RecordType;
+        TargetEvalMixIn    m_TargetEval;
 
     private:
         REGISTER_DECLARATION(Source);
 };
 
-/** \brief (source description) – A container for the descriptions of the source(s) used
- *  in the creation of the electronic file.
+/** \brief (source description) – A container for the descriptions of the source(s) used in
+ *  the creation of the electronic file.
  */
 class MEI_EXPORT SourceDesc : public MeiElement {
     public:
@@ -1429,15 +2109,20 @@ class MEI_EXPORT SourceDesc : public MeiElement {
 
 /* include <sourceDesc> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(SourceDesc);
 };
 
-/** \brief (special reproduction characteristic) – The equalization system, noise
- *  reduction system, etc.
+/** \brief (special reproduction characteristic) – The equalization system, noise reduction
+ *  system, etc.
  * 
  *  used in making the recording (e.g., NAB, DBX, Dolby, etc.).
  */
@@ -1449,9 +2134,15 @@ class MEI_EXPORT SpecRepro : public MeiElement {
 
 /* include <specRepro> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1470,10 +2161,15 @@ class MEI_EXPORT StdVals : public MeiElement {
 
 /* include <stdVals> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        DatapointingMixIn    m_Datapointing;
+        DataPointingMixIn    m_DataPointing;
         LangMixIn    m_Lang;
 
     private:
@@ -1490,8 +2186,13 @@ class MEI_EXPORT SysReq : public MeiElement {
 
 /* include <sysReq> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1499,25 +2200,99 @@ class MEI_EXPORT SysReq : public MeiElement {
         REGISTER_DECLARATION(SysReq);
 };
 
-/** \brief Keyword or phrase which describes a resource.
+/** \brief Documents the usage of a specific element within the document.
  */
-class MEI_EXPORT Term : public MeiElement {
+class MEI_EXPORT TagUsage : public MeiElement {
     public:
-        Term();
-        Term(const Term& other);
-        virtual ~Term();
+        TagUsage();
+        TagUsage(const TagUsage& other);
+        virtual ~TagUsage();
+        /** \brief Name of the attribute.
+         */
+        MeiAttribute* getName();
+        void setName(std::string _name);
+        bool hasName();
+        void removeName();
+        /** \brief Circumstances in which the element appears, an XPath expression.
+         */
+        MeiAttribute* getContext();
+        void setContext(std::string _context);
+        bool hasContext();
+        void removeContext();
+        /** \brief Number of occurrences in the defined context.
+         */
+        MeiAttribute* getOccurs();
+        void setOccurs(std::string _occurs);
+        bool hasOccurs();
+        void removeOccurs();
+        /** \brief Number of occurrences in the defined context that have an
+         */
+        MeiAttribute* getWithid();
+        void setWithid(std::string _withid);
+        bool hasWithid();
+        void removeWithid();
 
-/* include <term> */
+/* include <tagUsage> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        BiblMixIn    m_Bibl;
-        ClasscodeidentMixIn    m_Classcodeident;
-        LangMixIn    m_Lang;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
 
     private:
-        REGISTER_DECLARATION(Term);
+        REGISTER_DECLARATION(TagUsage);
+};
+
+/** \brief (tagging declaration) – Provides detailed information about the tagging applied
+ *  to a document.
+ */
+class MEI_EXPORT TagsDecl : public MeiElement {
+    public:
+        TagsDecl();
+        TagsDecl(const TagsDecl& other);
+        virtual ~TagsDecl();
+
+/* include <tagsDecl> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(TagsDecl);
+};
+
+/** \brief Defines a typology either implicitly, by means of a bibliographic citation, or
+ *  explicitly by a structured taxonomy.
+ */
+class MEI_EXPORT Taxonomy : public MeiElement {
+    public:
+        Taxonomy();
+        Taxonomy(const Taxonomy& other);
+        virtual ~Taxonomy();
+
+/* include <taxonomy> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
+
+    private:
+        REGISTER_DECLARATION(Taxonomy);
 };
 
 /** \brief Collection of text phrases which describe a resource.
@@ -1530,11 +2305,15 @@ class MEI_EXPORT TermList : public MeiElement {
 
 /* include <termList> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        BiblMixIn    m_Bibl;
-        ClasscodeidentMixIn    m_Classcodeident;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
+        PointingMixIn    m_Pointing;
 
     private:
         REGISTER_DECLARATION(TermList);
@@ -1550,25 +2329,28 @@ class MEI_EXPORT TitleStmt : public MeiElement {
 
 /* include <titleStmt> */
 
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
 
     private:
         REGISTER_DECLARATION(TitleStmt);
 };
 
-/** \brief (track configuration) – Number of physical/input tracks on a sound medium
- *  (e.g., eight track, twelve track).
+/** \brief (track configuration) – Number of physical/input tracks on a sound medium (e.g.,
+ *  eight track, twelve track).
  */
 class MEI_EXPORT TrackConfig : public MeiElement {
     public:
         TrackConfig();
         TrackConfig(const TrackConfig& other);
         virtual ~TrackConfig();
-        /** \brief Along with numbase, describes duration as a ratio.
-         * 
-         *  num is the first value in the ratio, while numbase is the second.
+        /** \brief Records a number or count accompanying a notational feature.
          */
         MeiAttribute* getNum();
         void setNum(std::string _num);
@@ -1577,9 +2359,15 @@ class MEI_EXPORT TrackConfig : public MeiElement {
 
 /* include <trackConfig> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1598,8 +2386,13 @@ class MEI_EXPORT TreatHist : public MeiElement {
 
 /* include <treatHist> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1619,8 +2412,13 @@ class MEI_EXPORT TreatSched : public MeiElement {
 
 /* include <treatSched> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1639,8 +2437,13 @@ class MEI_EXPORT Unpub : public MeiElement {
 
 /* include <unpub> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1659,8 +2462,15 @@ class MEI_EXPORT UseRestrict : public MeiElement {
 
 /* include <useRestrict> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
         LangMixIn    m_Lang;
 
@@ -1678,8 +2488,13 @@ class MEI_EXPORT Watermark : public MeiElement {
 
 /* include <watermark> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         BiblMixIn    m_Bibl;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
@@ -1688,9 +2503,10 @@ class MEI_EXPORT Watermark : public MeiElement {
         REGISTER_DECLARATION(Watermark);
 };
 
-/** \brief Provides a detailed description of a work, specifically its history, language
- *  use, and high-level musical attributes: key, tempo, meter, medium of
- *  performance, and intended duration.
+/** \brief Provides a detailed description of a work — a distinct intellectual or artistic
+ *  creation — specifically its history, language use, and high-level musical
+ *  attributes (e.g., key, tempo, meter, medium of performance, and intended
+ *  duration).
  */
 class MEI_EXPORT Work : public MeiElement {
     public:
@@ -1700,31 +2516,45 @@ class MEI_EXPORT Work : public MeiElement {
 
 /* include <work> */
 
-        DatapointingMixIn    m_Datapointing;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
+        DataPointingMixIn    m_DataPointing;
+        PointingMixIn    m_Pointing;
+        TargetEvalMixIn    m_TargetEval;
 
     private:
         REGISTER_DECLARATION(Work);
 };
 
-/** \brief (work description) – Grouping mechanism for information describing non-
- *  bibliographic aspects of a text.
+/** \brief (work list) – Grouping mechanism for information describing non-bibliographic
+ *  aspects of a text.
  */
-class MEI_EXPORT WorkDesc : public MeiElement {
+class MEI_EXPORT WorkList : public MeiElement {
     public:
-        WorkDesc();
-        WorkDesc(const WorkDesc& other);
-        virtual ~WorkDesc();
+        WorkList();
+        WorkList(const WorkList& other);
+        virtual ~WorkList();
 
-/* include <workDesc> */
+/* include <workList> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
-        REGISTER_DECLARATION(WorkDesc);
+        REGISTER_DECLARATION(WorkList);
 };
 }
 #endif  // HEADER_H_

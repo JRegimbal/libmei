@@ -31,10 +31,11 @@
 #include "meicommon.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
-#include "analysismixins.h"
+#include "gesturalmixins.h"
 #include "performancemixins.h"
 #include "usersymbolsmixins.h"
 #include "fingeringmixins.h"
+#include "visualmixins.h"
 
 
 namespace mei {
@@ -48,33 +49,37 @@ class MEI_EXPORT Fing : public MeiElement {
 
 /* include <fing> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        FacsimileMixIn    m_Facsimile;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        DurationPerformedMixIn    m_DurationPerformed;
-        PlistMixIn    m_Plist;
-        TargetevalMixIn    m_Targeteval;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        TimestampPerformedMixIn    m_TimestampPerformed;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        AugmentdotsMixIn    m_Augmentdots;
-        DurationAdditiveMixIn    m_DurationAdditive;
-        StartendidMixIn    m_Startendid;
-        StartidMixIn    m_Startid;
-        Timestamp2MusicalMixIn    m_Timestamp2Musical;
-        AltsymMixIn    m_Altsym;
-        ExtenderMixIn    m_Extender;
-        LinerendMixIn    m_Linerend;
-        LinerendBaseMixIn    m_LinerendBase;
-        PlacementMixIn    m_Placement;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
-        XyMixIn    m_Xy;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        FacsimileMixIn    m_Facsimile;
+        DurationGesturalMixIn    m_DurationGestural;
+        Timestamp2GesturalMixIn    m_Timestamp2Gestural;
+        AlignmentMixIn    m_Alignment;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        PlistMixIn    m_Plist;
+        StaffIdentMixIn    m_StaffIdent;
+        TargetEvalMixIn    m_TargetEval;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        DurationAdditiveMixIn    m_DurationAdditive;
+        StartEndIdMixIn    m_StartEndId;
+        StartIdMixIn    m_StartId;
+        Timestamp2LogicalMixIn    m_Timestamp2Logical;
+        AltSymMixIn    m_AltSym;
+        ExtenderMixIn    m_Extender;
+        LineRendMixIn    m_LineRend;
+        LineRendBaseMixIn    m_LineRendBase;
+        PlacementMixIn    m_Placement;
+        VisualOffsetHoMixIn    m_VisualOffsetHo;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
+        XyMixIn    m_Xy;
 
     private:
         REGISTER_DECLARATION(Fing);
@@ -90,35 +95,39 @@ class MEI_EXPORT FingGrp : public MeiElement {
 
 /* include <fingGrp> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        FacsimileMixIn    m_Facsimile;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        DurationPerformedMixIn    m_DurationPerformed;
-        FingGrpLogMixIn    m_FingGrpLog;
-        PlistMixIn    m_Plist;
-        TargetevalMixIn    m_Targeteval;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        TimestampPerformedMixIn    m_TimestampPerformed;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        AugmentdotsMixIn    m_Augmentdots;
-        DurationAdditiveMixIn    m_DurationAdditive;
-        StartendidMixIn    m_Startendid;
-        StartidMixIn    m_Startid;
-        Timestamp2MusicalMixIn    m_Timestamp2Musical;
-        FingGrpVisMixIn    m_FingGrpVis;
-        AltsymMixIn    m_Altsym;
-        ExtenderMixIn    m_Extender;
-        LinerendMixIn    m_Linerend;
-        LinerendBaseMixIn    m_LinerendBase;
-        PlacementMixIn    m_Placement;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
-        XyMixIn    m_Xy;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        FacsimileMixIn    m_Facsimile;
+        DurationGesturalMixIn    m_DurationGestural;
+        Timestamp2GesturalMixIn    m_Timestamp2Gestural;
+        FingGrpLogMixIn    m_FingGrpLog;
+        AlignmentMixIn    m_Alignment;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        PlistMixIn    m_Plist;
+        StaffIdentMixIn    m_StaffIdent;
+        TargetEvalMixIn    m_TargetEval;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        DurationAdditiveMixIn    m_DurationAdditive;
+        StartEndIdMixIn    m_StartEndId;
+        StartIdMixIn    m_StartId;
+        Timestamp2LogicalMixIn    m_Timestamp2Logical;
+        FingGrpVisMixIn    m_FingGrpVis;
+        AltSymMixIn    m_AltSym;
+        ExtenderMixIn    m_Extender;
+        LineRendMixIn    m_LineRend;
+        LineRendBaseMixIn    m_LineRendBase;
+        PlacementMixIn    m_Placement;
+        VisualOffsetHoMixIn    m_VisualOffsetHo;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
+        XyMixIn    m_Xy;
 
     private:
         REGISTER_DECLARATION(FingGrp);

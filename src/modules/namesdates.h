@@ -30,8 +30,6 @@
 
 #include "meicommon.h"
 #include "sharedmixins.h"
-#include "critappmixins.h"
-#include "edittransmixins.h"
 #include "facsimilemixins.h"
 
 
@@ -47,10 +45,14 @@ class MEI_EXPORT AddName : public MeiElement {
 
 /* include <addName> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -60,14 +62,13 @@ class MEI_EXPORT AddName : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(AddName);
 };
 
-/** \brief Contains the name of a geo-political unit consisting of two or more nation
- *  states or countries.
+/** \brief Contains the name of a geopolitical unit consisting of two or more nation states
+ *  or countries.
  */
 class MEI_EXPORT Bloc : public MeiElement {
     public:
@@ -77,10 +78,14 @@ class MEI_EXPORT Bloc : public MeiElement {
 
 /* include <bloc> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -90,14 +95,13 @@ class MEI_EXPORT Bloc : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Bloc);
 };
 
-/** \brief (corporate name) – Identifies an organization or group of people that acts as
- *  a single entity.
+/** \brief (corporate name) – Identifies an organization or group of people that acts as a
+ *  single entity.
  */
 class MEI_EXPORT CorpName : public MeiElement {
     public:
@@ -107,10 +111,14 @@ class MEI_EXPORT CorpName : public MeiElement {
 
 /* include <corpName> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -120,13 +128,12 @@ class MEI_EXPORT CorpName : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(CorpName);
 };
 
-/** \brief Contains the name of a geo-political unit, such as a nation, country, colony, or
+/** \brief Contains the name of a geopolitical unit, such as a nation, country, colony, or
  *  commonwealth, larger than or administratively superior to a region and smaller
  *  than a bloc.
  */
@@ -138,10 +145,14 @@ class MEI_EXPORT Country : public MeiElement {
 
 /* include <country> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -151,7 +162,6 @@ class MEI_EXPORT Country : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Country);
@@ -168,10 +178,14 @@ class MEI_EXPORT District : public MeiElement {
 
 /* include <district> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -181,7 +195,6 @@ class MEI_EXPORT District : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(District);
@@ -198,10 +211,14 @@ class MEI_EXPORT FamName : public MeiElement {
 
 /* include <famName> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -211,7 +228,6 @@ class MEI_EXPORT FamName : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(FamName);
@@ -227,10 +243,14 @@ class MEI_EXPORT ForeName : public MeiElement {
 
 /* include <foreName> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -240,7 +260,6 @@ class MEI_EXPORT ForeName : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(ForeName);
@@ -258,10 +277,14 @@ class MEI_EXPORT GenName : public MeiElement {
 
 /* include <genName> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -271,14 +294,13 @@ class MEI_EXPORT GenName : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(GenName);
 };
 
-/** \brief (geographical feature name) – Contains a common noun identifying a
- *  geographical feature.
+/** \brief (geographical feature name) – Contains a common noun identifying a geographical
+ *  feature.
  */
 class MEI_EXPORT GeogFeat : public MeiElement {
     public:
@@ -288,10 +310,14 @@ class MEI_EXPORT GeogFeat : public MeiElement {
 
 /* include <geogFeat> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -301,14 +327,13 @@ class MEI_EXPORT GeogFeat : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(GeogFeat);
 };
 
-/** \brief (geographic name) – The proper noun designation for a place, natural feature,
- *  or political jurisdiction.
+/** \brief (geographic name) – The proper noun designation for a place, natural feature, or
+ *  political jurisdiction.
  */
 class MEI_EXPORT GeogName : public MeiElement {
     public:
@@ -318,10 +343,14 @@ class MEI_EXPORT GeogName : public MeiElement {
 
 /* include <geogName> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -331,7 +360,6 @@ class MEI_EXPORT GeogName : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(GeogName);
@@ -348,10 +376,14 @@ class MEI_EXPORT NameLink : public MeiElement {
 
 /* include <nameLink> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -361,7 +393,6 @@ class MEI_EXPORT NameLink : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(NameLink);
@@ -378,10 +409,14 @@ class MEI_EXPORT PeriodName : public MeiElement {
 
 /* include <periodName> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -391,7 +426,6 @@ class MEI_EXPORT PeriodName : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(PeriodName);
@@ -408,10 +442,14 @@ class MEI_EXPORT PersName : public MeiElement {
 
 /* include <persName> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -421,7 +459,6 @@ class MEI_EXPORT PersName : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(PersName);
@@ -438,8 +475,13 @@ class MEI_EXPORT PostBox : public MeiElement {
 
 /* include <postBox> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -458,8 +500,13 @@ class MEI_EXPORT PostCode : public MeiElement {
 
 /* include <postCode> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -478,10 +525,14 @@ class MEI_EXPORT Region : public MeiElement {
 
 /* include <region> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -491,14 +542,13 @@ class MEI_EXPORT Region : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Region);
 };
 
-/** \brief (role name) – Contains a name component which indicates that the referent has
- *  a particular role or position in society, such as an official title or rank.
+/** \brief (role name) – Contains a name component which indicates that the referent has a
+ *  particular role or position in society, such as an official title or rank.
  */
 class MEI_EXPORT RoleName : public MeiElement {
     public:
@@ -508,10 +558,14 @@ class MEI_EXPORT RoleName : public MeiElement {
 
 /* include <roleName> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -521,14 +575,13 @@ class MEI_EXPORT RoleName : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(RoleName);
 };
 
 /** \brief Contains the name of a settlement such as a city, town, or village identified as
- *  a single geo-political or administrative unit.
+ *  a single geopolitical or administrative unit.
  */
 class MEI_EXPORT Settlement : public MeiElement {
     public:
@@ -538,10 +591,14 @@ class MEI_EXPORT Settlement : public MeiElement {
 
 /* include <settlement> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -551,7 +608,6 @@ class MEI_EXPORT Settlement : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Settlement);
@@ -568,8 +624,13 @@ class MEI_EXPORT Street : public MeiElement {
 
 /* include <street> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
 
@@ -588,10 +649,14 @@ class MEI_EXPORT StyleName : public MeiElement {
 
 /* include <styleName> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
         SourceMixIn    m_Source;
         EvidenceMixIn    m_Evidence;
         FacsimileMixIn    m_Facsimile;
@@ -601,7 +666,6 @@ class MEI_EXPORT StyleName : public MeiElement {
         CanonicalMixIn    m_Canonical;
         DatableMixIn    m_Datable;
         FilingMixIn    m_Filing;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(StyleName);

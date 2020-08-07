@@ -31,10 +31,10 @@
 #include <string>
 
 namespace mei {
-class AgentidentMixIn {
+class AgentIdentMixIn {
     public:
-        explicit AgentidentMixIn(MeiElement *b);
-        virtual ~AgentidentMixIn();
+        explicit AgentIdentMixIn(MeiElement *b);
+        virtual ~AgentIdentMixIn();
         /** \brief Signifies the causative agent of damage, illegibility, or other loss of original
          *  text.
          */
@@ -49,53 +49,10 @@ class AgentidentMixIn {
         MeiElement *b;
 };
 
-class EvidenceMixIn {
+class ReasonIdentMixIn {
     public:
-        explicit EvidenceMixIn(MeiElement *b);
-        virtual ~EvidenceMixIn();
-        /** \brief Signifies the degree of certainty or precision associated with a feature.
-         */
-        MeiAttribute* getCert();
-        void setCert(std::string _cert);
-        bool hasCert();
-        void removeCert();
-        /** \brief Indicates the nature of the evidence supporting the reliability or accuracy of
-         *  the intervention or interpretation.
-         * 
-         *  Suggested values include: 'internal', 'external', 'conjecture'.
-         */
-        MeiAttribute* getEvidence();
-        void setEvidence(std::string _evidence);
-        bool hasEvidence();
-        void removeEvidence();
-
-/* include <evidencemixin> */
-
-    private:
-        MeiElement *b;
-};
-
-class ExtentMixIn {
-    public:
-        explicit ExtentMixIn(MeiElement *b);
-        virtual ~ExtentMixIn();
-        /** \brief Indicates the extent of damage or omission.
-         */
-        MeiAttribute* getExtent();
-        void setExtent(std::string _extent);
-        bool hasExtent();
-        void removeExtent();
-
-/* include <extentmixin> */
-
-    private:
-        MeiElement *b;
-};
-
-class ReasonidentMixIn {
-    public:
-        explicit ReasonidentMixIn(MeiElement *b);
-        virtual ~ReasonidentMixIn();
+        explicit ReasonIdentMixIn(MeiElement *b);
+        virtual ~ReasonIdentMixIn();
         /** \brief Holds a short phrase describing the reason for missing textual material (gap),
          *  why material is supplied (supplied), or why transcription is difficult
          *  (unclear).

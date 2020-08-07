@@ -5,50 +5,88 @@
 using std::string;
 using mei::MeiAttribute;
 
-mei::ExtsymMixIn::ExtsymMixIn(MeiElement *b) {
+mei::ExtSymMixIn::ExtSymMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::ExtsymMixIn::~ExtsymMixIn() {}
-MeiAttribute* mei::ExtsymMixIn::getGlyphname() {
-    if (!b->hasAttribute("glyphname")) {
+mei::ExtSymMixIn::~ExtSymMixIn() {}
+MeiAttribute* mei::ExtSymMixIn::getGlyphAuth() {
+    if (!b->hasAttribute("glyph.auth")) {
         return NULL;
     }
-    return b->getAttribute("glyphname");
+    return b->getAttribute("glyph.auth");
 };
 
-void mei::ExtsymMixIn::setGlyphname(std::string _glyphname) {
-    MeiAttribute *a = new MeiAttribute("glyphname", _glyphname);
+void mei::ExtSymMixIn::setGlyphAuth(std::string _glyphauth) {
+    MeiAttribute *a = new MeiAttribute("glyph.auth", _glyphauth);
     b->addAttribute(a);
 };
 
-bool mei::ExtsymMixIn::hasGlyphname() {
-    return b->hasAttribute("glyphname");
+bool mei::ExtSymMixIn::hasGlyphAuth() {
+    return b->hasAttribute("glyph.auth");
 };
 
-void mei::ExtsymMixIn::removeGlyphname() {
-    b->removeAttribute("glyphname");
+void mei::ExtSymMixIn::removeGlyphAuth() {
+    b->removeAttribute("glyph.auth");
 };
-MeiAttribute* mei::ExtsymMixIn::getGlyphnum() {
-    if (!b->hasAttribute("glyphnum")) {
+MeiAttribute* mei::ExtSymMixIn::getGlyphName() {
+    if (!b->hasAttribute("glyph.name")) {
         return NULL;
     }
-    return b->getAttribute("glyphnum");
+    return b->getAttribute("glyph.name");
 };
 
-void mei::ExtsymMixIn::setGlyphnum(std::string _glyphnum) {
-    MeiAttribute *a = new MeiAttribute("glyphnum", _glyphnum);
+void mei::ExtSymMixIn::setGlyphName(std::string _glyphname) {
+    MeiAttribute *a = new MeiAttribute("glyph.name", _glyphname);
     b->addAttribute(a);
 };
 
-bool mei::ExtsymMixIn::hasGlyphnum() {
-    return b->hasAttribute("glyphnum");
+bool mei::ExtSymMixIn::hasGlyphName() {
+    return b->hasAttribute("glyph.name");
 };
 
-void mei::ExtsymMixIn::removeGlyphnum() {
-    b->removeAttribute("glyphnum");
+void mei::ExtSymMixIn::removeGlyphName() {
+    b->removeAttribute("glyph.name");
+};
+MeiAttribute* mei::ExtSymMixIn::getGlyphNum() {
+    if (!b->hasAttribute("glyph.num")) {
+        return NULL;
+    }
+    return b->getAttribute("glyph.num");
 };
 
-/* include <glyphnummixin> */
+void mei::ExtSymMixIn::setGlyphNum(std::string _glyphnum) {
+    MeiAttribute *a = new MeiAttribute("glyph.num", _glyphnum);
+    b->addAttribute(a);
+};
+
+bool mei::ExtSymMixIn::hasGlyphNum() {
+    return b->hasAttribute("glyph.num");
+};
+
+void mei::ExtSymMixIn::removeGlyphNum() {
+    b->removeAttribute("glyph.num");
+};
+MeiAttribute* mei::ExtSymMixIn::getGlyphUri() {
+    if (!b->hasAttribute("glyph.uri")) {
+        return NULL;
+    }
+    return b->getAttribute("glyph.uri");
+};
+
+void mei::ExtSymMixIn::setGlyphUri(std::string _glyphuri) {
+    MeiAttribute *a = new MeiAttribute("glyph.uri", _glyphuri);
+    b->addAttribute(a);
+};
+
+bool mei::ExtSymMixIn::hasGlyphUri() {
+    return b->hasAttribute("glyph.uri");
+};
+
+void mei::ExtSymMixIn::removeGlyphUri() {
+    b->removeAttribute("glyph.uri");
+};
+
+/* include <glyph.urimixin> */
 
 

@@ -29,12 +29,12 @@
 /* #include_block */
 
 #include "meicommon.h"
-#include "analysismixins.h"
-#include "performancemixins.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "usersymbolsmixins.h"
-#include "externalsymbolsmixins.h"
+#include "gesturalmixins.h"
+#include "performancemixins.h"
+#include "visualmixins.h"
 #include <string>
 
 
@@ -50,17 +50,20 @@ class MEI_EXPORT AnchoredText : public MeiElement {
 
 /* include <anchoredText> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
-        StartidMixIn    m_Startid;
-        TypedMixIn    m_Typed;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
+        AnchoredTextLogMixIn    m_AnchoredTextLog;
+        StartIdMixIn    m_StartId;
+        VisualOffsetHoMixIn    m_VisualOffsetHo;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
         XyMixIn    m_Xy;
 
     private:
@@ -78,25 +81,28 @@ class MEI_EXPORT Curve : public MeiElement {
 
 /* include <curve> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        ColorMixIn    m_Color;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        CurvatureMixIn    m_Curvature;
-        CurverendMixIn    m_Curverend;
-        FacsimileMixIn    m_Facsimile;
-        StartendidMixIn    m_Startendid;
-        StartidMixIn    m_Startid;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
-        Visualoffset2HoMixIn    m_Visualoffset2Ho;
-        Visualoffset2ToMixIn    m_Visualoffset2To;
-        Visualoffset2VoMixIn    m_Visualoffset2Vo;
+        ClassedMixIn    m_Classed;
+        CurveLogMixIn    m_CurveLog;
+        StartEndIdMixIn    m_StartEndId;
+        StartIdMixIn    m_StartId;
+        ColorMixIn    m_Color;
+        CurvatureMixIn    m_Curvature;
+        CurveRendMixIn    m_CurveRend;
+        VisualOffsetHoMixIn    m_VisualOffsetHo;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
+        VisualOffset2HoMixIn    m_VisualOffset2Ho;
+        VisualOffset2ToMixIn    m_VisualOffset2To;
+        VisualOffset2VoMixIn    m_VisualOffset2Vo;
         XyMixIn    m_Xy;
         Xy2MixIn    m_Xy2;
+        FacsimileMixIn    m_Facsimile;
 
     private:
         REGISTER_DECLARATION(Curve);
@@ -113,32 +119,40 @@ class MEI_EXPORT Line : public MeiElement {
 
 /* include <line> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
-        DurationPerformedMixIn    m_DurationPerformed;
+        DurationGesturalMixIn    m_DurationGestural;
+        Timestamp2GesturalMixIn    m_Timestamp2Gestural;
+        LineLogMixIn    m_LineLog;
+        AlignmentMixIn    m_Alignment;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
         PlistMixIn    m_Plist;
-        TargetevalMixIn    m_Targeteval;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        TimestampPerformedMixIn    m_TimestampPerformed;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
+        StaffIdentMixIn    m_StaffIdent;
+        TargetEvalMixIn    m_TargetEval;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
         DurationAdditiveMixIn    m_DurationAdditive;
-        StartendidMixIn    m_Startendid;
-        StartidMixIn    m_Startid;
-        Timestamp2MusicalMixIn    m_Timestamp2Musical;
+        StartEndIdMixIn    m_StartEndId;
+        StartIdMixIn    m_StartId;
+        Timestamp2LogicalMixIn    m_Timestamp2Logical;
         LineVisMixIn    m_LineVis;
         ColorMixIn    m_Color;
         PlacementMixIn    m_Placement;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
-        Visualoffset2HoMixIn    m_Visualoffset2Ho;
-        Visualoffset2ToMixIn    m_Visualoffset2To;
-        Visualoffset2VoMixIn    m_Visualoffset2Vo;
+        VisualOffsetHoMixIn    m_VisualOffsetHo;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
+        VisualOffset2HoMixIn    m_VisualOffset2Ho;
+        VisualOffset2ToMixIn    m_VisualOffset2To;
+        VisualOffset2VoMixIn    m_VisualOffset2Vo;
         XyMixIn    m_Xy;
         Xy2MixIn    m_Xy2;
-        TypedMixIn    m_Typed;
 
     private:
         REGISTER_DECLARATION(Line);
@@ -155,10 +169,13 @@ class MEI_EXPORT Mapping : public MeiElement {
 
 /* include <mapping> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(Mapping);
@@ -171,8 +188,8 @@ class MEI_EXPORT PropName : public MeiElement {
         PropName();
         PropName(const PropName& other);
         virtual ~PropName();
-        /** \brief Characterizes the element in some sense, using any convenient classification
-         *  scheme or typology.
+        /** \brief Provides a description of the relationship between the current and the target
+         *  categories.
          */
         MeiAttribute* getType();
         void setType(std::string _type);
@@ -181,8 +198,11 @@ class MEI_EXPORT PropName : public MeiElement {
 
 /* include <propName> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
 
     private:
         REGISTER_DECLARATION(PropName);
@@ -198,8 +218,13 @@ class MEI_EXPORT PropValue : public MeiElement {
 
 /* include <propValue> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(PropValue);
@@ -216,8 +241,13 @@ class MEI_EXPORT SymName : public MeiElement {
 
 /* include <symName> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(SymName);
@@ -234,43 +264,16 @@ class MEI_EXPORT SymProp : public MeiElement {
 
 /* include <symProp> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(SymProp);
-};
-
-/** \brief A reference to a previously defined symbol.
- */
-class MEI_EXPORT Symbol : public MeiElement {
-    public:
-        Symbol();
-        Symbol(const Symbol& other);
-        virtual ~Symbol();
-
-/* include <symbol> */
-
-        AltsymMixIn    m_Altsym;
-        AuthorizedMixIn    m_Authorized;
-        ColorMixIn    m_Color;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        ExtsymMixIn    m_Extsym;
-        FacsimileMixIn    m_Facsimile;
-        ScalableMixIn    m_Scalable;
-        StartidMixIn    m_Startid;
-        TypedMixIn    m_Typed;
-        TypographyMixIn    m_Typography;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
-        XyMixIn    m_Xy;
-
-    private:
-        REGISTER_DECLARATION(Symbol);
 };
 
 /** \brief (symbol definition) – Declaration of an individual symbol in a symbolTable.
@@ -283,8 +286,13 @@ class MEI_EXPORT SymbolDef : public MeiElement {
 
 /* include <symbolDef> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         CoordinatedMixIn    m_Coordinated;
 
     private:
@@ -301,8 +309,13 @@ class MEI_EXPORT SymbolTable : public MeiElement {
 
 /* include <symbolTable> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(SymbolTable);

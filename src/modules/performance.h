@@ -45,14 +45,18 @@ class MEI_EXPORT AvFile : public MeiElement {
 
 /* include <avFile> */
 
-        BiblMixIn    m_Bibl;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        DeclaringMixIn    m_Declaring;
-        InternetmediaMixIn    m_Internetmedia;
-        FacsimileMixIn    m_Facsimile;
-        PointingMixIn    m_Pointing;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        BiblMixIn    m_Bibl;
+        InternetMediaMixIn    m_InternetMedia;
+        FacsimileMixIn    m_Facsimile;
+        MetadataPointingMixIn    m_MetadataPointing;
+        PointingMixIn    m_Pointing;
 
     private:
         REGISTER_DECLARATION(AvFile);
@@ -69,12 +73,17 @@ class MEI_EXPORT Clip : public MeiElement {
 
 /* include <clip> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        DatapointingMixIn    m_Datapointing;
-        DeclaringMixIn    m_Declaring;
-        MediaboundsMixIn    m_Mediabounds;
-        StartidMixIn    m_Startid;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        DataPointingMixIn    m_DataPointing;
+        MediaBoundsMixIn    m_MediaBounds;
+        MetadataPointingMixIn    m_MetadataPointing;
+        StartIdMixIn    m_StartId;
 
     private:
         REGISTER_DECLARATION(Clip);
@@ -90,9 +99,14 @@ class MEI_EXPORT Performance : public MeiElement {
 
 /* include <performance> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        DeclaringMixIn    m_Declaring;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        MetadataPointingMixIn    m_MetadataPointing;
 
     private:
         REGISTER_DECLARATION(Performance);
@@ -108,12 +122,17 @@ class MEI_EXPORT Recording : public MeiElement {
 
 /* include <recording> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        DatapointingMixIn    m_Datapointing;
-        DeclaringMixIn    m_Declaring;
-        MediaboundsMixIn    m_Mediabounds;
-        StartidMixIn    m_Startid;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        DataPointingMixIn    m_DataPointing;
+        MediaBoundsMixIn    m_MediaBounds;
+        MetadataPointingMixIn    m_MetadataPointing;
+        StartIdMixIn    m_StartId;
 
     private:
         REGISTER_DECLARATION(Recording);
@@ -172,9 +191,14 @@ class MEI_EXPORT When : public MeiElement {
 
 /* include <when> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        DatapointingMixIn    m_Datapointing;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        DataPointingMixIn    m_DataPointing;
 
     private:
         REGISTER_DECLARATION(When);

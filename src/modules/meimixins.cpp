@@ -5,47 +5,47 @@
 using std::string;
 using mei::MeiAttribute;
 
-mei::NotationtypeMixIn::NotationtypeMixIn(MeiElement *b) {
+mei::NotationTypeMixIn::NotationTypeMixIn(MeiElement *b) {
     this->b = b;
 };
 
-mei::NotationtypeMixIn::~NotationtypeMixIn() {}
-MeiAttribute* mei::NotationtypeMixIn::getNotationtype() {
+mei::NotationTypeMixIn::~NotationTypeMixIn() {}
+MeiAttribute* mei::NotationTypeMixIn::getNotationtype() {
     if (!b->hasAttribute("notationtype")) {
         return NULL;
     }
     return b->getAttribute("notationtype");
 };
 
-void mei::NotationtypeMixIn::setNotationtype(std::string _notationtype) {
+void mei::NotationTypeMixIn::setNotationtype(std::string _notationtype) {
     MeiAttribute *a = new MeiAttribute("notationtype", _notationtype);
     b->addAttribute(a);
 };
 
-bool mei::NotationtypeMixIn::hasNotationtype() {
+bool mei::NotationTypeMixIn::hasNotationtype() {
     return b->hasAttribute("notationtype");
 };
 
-void mei::NotationtypeMixIn::removeNotationtype() {
+void mei::NotationTypeMixIn::removeNotationtype() {
     b->removeAttribute("notationtype");
 };
-MeiAttribute* mei::NotationtypeMixIn::getNotationsubtype() {
+MeiAttribute* mei::NotationTypeMixIn::getNotationsubtype() {
     if (!b->hasAttribute("notationsubtype")) {
         return NULL;
     }
     return b->getAttribute("notationsubtype");
 };
 
-void mei::NotationtypeMixIn::setNotationsubtype(std::string _notationsubtype) {
+void mei::NotationTypeMixIn::setNotationsubtype(std::string _notationsubtype) {
     MeiAttribute *a = new MeiAttribute("notationsubtype", _notationsubtype);
     b->addAttribute(a);
 };
 
-bool mei::NotationtypeMixIn::hasNotationsubtype() {
+bool mei::NotationTypeMixIn::hasNotationsubtype() {
     return b->hasAttribute("notationsubtype");
 };
 
-void mei::NotationtypeMixIn::removeNotationsubtype() {
+void mei::NotationTypeMixIn::removeNotationsubtype() {
     b->removeAttribute("notationsubtype");
 };
 

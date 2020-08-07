@@ -29,9 +29,8 @@
 /* #include_block */
 
 #include "meicommon.h"
-#include "analysismixins.h"
-#include "performancemixins.h"
 #include "sharedmixins.h"
+#include "gesturalmixins.h"
 #include "midimixins.h"
 #include <string>
 
@@ -47,15 +46,20 @@ class MEI_EXPORT Cc : public MeiElement {
 
 /* include <cc> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        MidinumberMixIn    m_Midinumber;
-        MidivalueMixIn    m_Midivalue;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        MidiNumberMixIn    m_MidiNumber;
+        MidiValueMixIn    m_MidiValue;
 
     private:
         REGISTER_DECLARATION(Cc);
@@ -68,9 +72,7 @@ class MEI_EXPORT Chan : public MeiElement {
         Chan();
         Chan(const Chan& other);
         virtual ~Chan();
-        /** \brief Along with numbase, describes duration as a ratio.
-         * 
-         *  num is the first value in the ratio, while numbase is the second.
+        /** \brief Records a number or count accompanying a notational feature.
          */
         MeiAttribute* getNum();
         void setNum(std::string _num);
@@ -79,13 +81,18 @@ class MEI_EXPORT Chan : public MeiElement {
 
 /* include <chan> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
 
     private:
         REGISTER_DECLARATION(Chan);
@@ -101,14 +108,19 @@ class MEI_EXPORT ChanPr : public MeiElement {
 
 /* include <chanPr> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        MidinumberMixIn    m_Midinumber;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        MidiNumberMixIn    m_MidiNumber;
 
     private:
         REGISTER_DECLARATION(ChanPr);
@@ -124,14 +136,19 @@ class MEI_EXPORT Cue : public MeiElement {
 
 /* include <cue> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         LangMixIn    m_Lang;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
 
     private:
         REGISTER_DECLARATION(Cue);
@@ -147,13 +164,18 @@ class MEI_EXPORT Hex : public MeiElement {
 
 /* include <hex> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
 
     private:
         REGISTER_DECLARATION(Hex);
@@ -169,10 +191,16 @@ class MEI_EXPORT InstrDef : public MeiElement {
 
 /* include <instrDef> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         ChannelizedMixIn    m_Channelized;
-        MidiinstrumentMixIn    m_Midiinstrument;
+        MidiInstrumentMixIn    m_MidiInstrument;
+        SoundLocationMixIn    m_SoundLocation;
 
     private:
         REGISTER_DECLARATION(InstrDef);
@@ -188,8 +216,13 @@ class MEI_EXPORT InstrGrp : public MeiElement {
 
 /* include <instrGrp> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(InstrGrp);
@@ -205,14 +238,19 @@ class MEI_EXPORT Marker : public MeiElement {
 
 /* include <marker> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         LangMixIn    m_Lang;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
 
     private:
         REGISTER_DECLARATION(Marker);
@@ -228,14 +266,19 @@ class MEI_EXPORT MetaText : public MeiElement {
 
 /* include <metaText> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         LangMixIn    m_Lang;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
 
     private:
         REGISTER_DECLARATION(MetaText);
@@ -252,12 +295,16 @@ class MEI_EXPORT Midi : public MeiElement {
 
 /* include <midi> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
 
     private:
         REGISTER_DECLARATION(Midi);
@@ -273,14 +320,19 @@ class MEI_EXPORT NoteOff : public MeiElement {
 
 /* include <noteOff> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        MidinumberMixIn    m_Midinumber;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        MidiNumberMixIn    m_MidiNumber;
 
     private:
         REGISTER_DECLARATION(NoteOff);
@@ -296,14 +348,19 @@ class MEI_EXPORT NoteOn : public MeiElement {
 
 /* include <noteOn> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        MidinumberMixIn    m_Midinumber;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        MidiNumberMixIn    m_MidiNumber;
 
     private:
         REGISTER_DECLARATION(NoteOn);
@@ -319,14 +376,19 @@ class MEI_EXPORT Port : public MeiElement {
 
 /* include <port> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        MidinumberMixIn    m_Midinumber;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        MidiNumberMixIn    m_MidiNumber;
 
     private:
         REGISTER_DECLARATION(Port);
@@ -342,14 +404,19 @@ class MEI_EXPORT Prog : public MeiElement {
 
 /* include <prog> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        MidinumberMixIn    m_Midinumber;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        MidiNumberMixIn    m_MidiNumber;
 
     private:
         REGISTER_DECLARATION(Prog);
@@ -362,9 +429,7 @@ class MEI_EXPORT SeqNum : public MeiElement {
         SeqNum();
         SeqNum(const SeqNum& other);
         virtual ~SeqNum();
-        /** \brief Along with numbase, describes duration as a ratio.
-         * 
-         *  num is the first value in the ratio, while numbase is the second.
+        /** \brief Records a number or count accompanying a notational feature.
          */
         MeiAttribute* getNum();
         void setNum(std::string _num);
@@ -373,13 +438,18 @@ class MEI_EXPORT SeqNum : public MeiElement {
 
 /* include <seqNum> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
 
     private:
         REGISTER_DECLARATION(SeqNum);
@@ -395,14 +465,19 @@ class MEI_EXPORT TrkName : public MeiElement {
 
 /* include <trkName> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         LangMixIn    m_Lang;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
 
     private:
         REGISTER_DECLARATION(TrkName);
@@ -415,7 +490,7 @@ class MEI_EXPORT Vel : public MeiElement {
         Vel();
         Vel(const Vel& other);
         virtual ~Vel();
-        /** \brief Records the appearance and usually the function of the bar line.
+        /** \brief Indicates to what degree the harmonic label is supported by the notation.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -424,14 +499,19 @@ class MEI_EXPORT Vel : public MeiElement {
 
 /* include <vel> */
 
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
-        TimestampMusicalMixIn    m_TimestampMusical;
-        MidinumberMixIn    m_Midinumber;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        LayerIdentMixIn    m_LayerIdent;
+        PartIdentMixIn    m_PartIdent;
+        StaffIdentMixIn    m_StaffIdent;
+        TimestampLogicalMixIn    m_TimestampLogical;
+        TimestampGesturalMixIn    m_TimestampGestural;
+        MidiNumberMixIn    m_MidiNumber;
 
     private:
         REGISTER_DECLARATION(Vel);

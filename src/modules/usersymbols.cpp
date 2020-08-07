@@ -7,17 +7,20 @@ using mei::MeiAttribute;
 
 mei::AnchoredText::AnchoredText() :
     MeiElement("anchoredText"),
-    m_CommonAnl(this),
-    m_Alignment(this),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Startid(this),
-    m_Typed(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
+    m_AnchoredTextLog(this),
+    m_StartId(this),
+    m_VisualOffsetHo(this),
+    m_VisualOffsetTo(this),
+    m_VisualOffsetVo(this),
     m_Xy(this)
 {
 }
@@ -25,17 +28,20 @@ REGISTER_DEFINITION(mei::AnchoredText, "anchoredText");
 mei::AnchoredText::~AnchoredText() {}
 mei::AnchoredText::AnchoredText(const AnchoredText& other) :
     MeiElement(other),
-    m_CommonAnl(this),
-    m_Alignment(this),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Facsimile(this),
     m_Lang(this),
-    m_Startid(this),
-    m_Typed(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
+    m_AnchoredTextLog(this),
+    m_StartId(this),
+    m_VisualOffsetHo(this),
+    m_VisualOffsetTo(this),
+    m_VisualOffsetVo(this),
     m_Xy(this)
 {
 }
@@ -44,50 +50,56 @@ mei::AnchoredText::AnchoredText(const AnchoredText& other) :
 
 mei::Curve::Curve() :
     MeiElement("curve"),
-    m_CommonAnl(this),
-    m_Alignment(this),
-    m_Color(this),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Curvature(this),
-    m_Curverend(this),
-    m_Facsimile(this),
-    m_Startendid(this),
-    m_Startid(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
     m_Typed(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
-    m_Visualoffset2Ho(this),
-    m_Visualoffset2To(this),
-    m_Visualoffset2Vo(this),
+    m_Classed(this),
+    m_CurveLog(this),
+    m_StartEndId(this),
+    m_StartId(this),
+    m_Color(this),
+    m_Curvature(this),
+    m_CurveRend(this),
+    m_VisualOffsetHo(this),
+    m_VisualOffsetTo(this),
+    m_VisualOffsetVo(this),
+    m_VisualOffset2Ho(this),
+    m_VisualOffset2To(this),
+    m_VisualOffset2Vo(this),
     m_Xy(this),
-    m_Xy2(this)
+    m_Xy2(this),
+    m_Facsimile(this)
 {
 }
 REGISTER_DEFINITION(mei::Curve, "curve");
 mei::Curve::~Curve() {}
 mei::Curve::Curve(const Curve& other) :
     MeiElement(other),
-    m_CommonAnl(this),
-    m_Alignment(this),
-    m_Color(this),
-    m_Common(this),
-    m_CommonPart(this),
-    m_Curvature(this),
-    m_Curverend(this),
-    m_Facsimile(this),
-    m_Startendid(this),
-    m_Startid(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
     m_Typed(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
-    m_Visualoffset2Ho(this),
-    m_Visualoffset2To(this),
-    m_Visualoffset2Vo(this),
+    m_Classed(this),
+    m_CurveLog(this),
+    m_StartEndId(this),
+    m_StartId(this),
+    m_Color(this),
+    m_Curvature(this),
+    m_CurveRend(this),
+    m_VisualOffsetHo(this),
+    m_VisualOffsetTo(this),
+    m_VisualOffsetVo(this),
+    m_VisualOffset2Ho(this),
+    m_VisualOffset2To(this),
+    m_VisualOffset2Vo(this),
     m_Xy(this),
-    m_Xy2(this)
+    m_Xy2(this),
+    m_Facsimile(this)
 {
 }
 
@@ -95,64 +107,80 @@ mei::Curve::Curve(const Curve& other) :
 
 mei::Line::Line() :
     MeiElement("line"),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Facsimile(this),
-    m_DurationPerformed(this),
+    m_DurationGestural(this),
+    m_Timestamp2Gestural(this),
+    m_LineLog(this),
+    m_Alignment(this),
+    m_LayerIdent(this),
+    m_PartIdent(this),
     m_Plist(this),
-    m_Targeteval(this),
-    m_TimestampMusical(this),
-    m_TimestampPerformed(this),
-    m_Staffident(this),
-    m_Layerident(this),
+    m_StaffIdent(this),
+    m_TargetEval(this),
+    m_TimestampLogical(this),
+    m_TimestampGestural(this),
     m_DurationAdditive(this),
-    m_Startendid(this),
-    m_Startid(this),
-    m_Timestamp2Musical(this),
+    m_StartEndId(this),
+    m_StartId(this),
+    m_Timestamp2Logical(this),
     m_LineVis(this),
     m_Color(this),
     m_Placement(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
-    m_Visualoffset2Ho(this),
-    m_Visualoffset2To(this),
-    m_Visualoffset2Vo(this),
+    m_VisualOffsetHo(this),
+    m_VisualOffsetTo(this),
+    m_VisualOffsetVo(this),
+    m_VisualOffset2Ho(this),
+    m_VisualOffset2To(this),
+    m_VisualOffset2Vo(this),
     m_Xy(this),
-    m_Xy2(this),
-    m_Typed(this)
+    m_Xy2(this)
 {
 }
 REGISTER_DEFINITION(mei::Line, "line");
 mei::Line::~Line() {}
 mei::Line::Line(const Line& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Facsimile(this),
-    m_DurationPerformed(this),
+    m_DurationGestural(this),
+    m_Timestamp2Gestural(this),
+    m_LineLog(this),
+    m_Alignment(this),
+    m_LayerIdent(this),
+    m_PartIdent(this),
     m_Plist(this),
-    m_Targeteval(this),
-    m_TimestampMusical(this),
-    m_TimestampPerformed(this),
-    m_Staffident(this),
-    m_Layerident(this),
+    m_StaffIdent(this),
+    m_TargetEval(this),
+    m_TimestampLogical(this),
+    m_TimestampGestural(this),
     m_DurationAdditive(this),
-    m_Startendid(this),
-    m_Startid(this),
-    m_Timestamp2Musical(this),
+    m_StartEndId(this),
+    m_StartId(this),
+    m_Timestamp2Logical(this),
     m_LineVis(this),
     m_Color(this),
     m_Placement(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
-    m_Visualoffset2Ho(this),
-    m_Visualoffset2To(this),
-    m_Visualoffset2Vo(this),
+    m_VisualOffsetHo(this),
+    m_VisualOffsetTo(this),
+    m_VisualOffsetVo(this),
+    m_VisualOffset2Ho(this),
+    m_VisualOffset2To(this),
+    m_VisualOffset2Vo(this),
     m_Xy(this),
-    m_Xy2(this),
-    m_Typed(this)
+    m_Xy2(this)
 {
 }
 
@@ -160,20 +188,26 @@ mei::Line::Line(const Line& other) :
 
 mei::Mapping::Mapping() :
     MeiElement("mapping"),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
     m_Responsibility(this),
-    m_Typed(this)
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 REGISTER_DEFINITION(mei::Mapping, "mapping");
 mei::Mapping::~Mapping() {}
 mei::Mapping::Mapping(const Mapping& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
     m_Responsibility(this),
-    m_Typed(this)
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 
@@ -181,16 +215,22 @@ mei::Mapping::Mapping(const Mapping& other) :
 
 mei::PropName::PropName() :
     MeiElement("propName"),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this)
 {
 }
 REGISTER_DEFINITION(mei::PropName, "propName");
 mei::PropName::~PropName() {}
 mei::PropName::PropName(const PropName& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this)
 {
 }
 
@@ -217,16 +257,26 @@ void mei::PropName::removeType() {
 
 mei::PropValue::PropValue() :
     MeiElement("propValue"),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 REGISTER_DEFINITION(mei::PropValue, "propValue");
 mei::PropValue::~PropValue() {}
 mei::PropValue::PropValue(const PropValue& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 
@@ -234,16 +284,26 @@ mei::PropValue::PropValue(const PropValue& other) :
 
 mei::SymName::SymName() :
     MeiElement("symName"),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 REGISTER_DEFINITION(mei::SymName, "symName");
 mei::SymName::~SymName() {}
 mei::SymName::SymName(const SymName& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 
@@ -251,72 +311,40 @@ mei::SymName::SymName(const SymName& other) :
 
 mei::SymProp::SymProp() :
     MeiElement("symProp"),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 REGISTER_DEFINITION(mei::SymProp, "symProp");
 mei::SymProp::~SymProp() {}
 mei::SymProp::SymProp(const SymProp& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 
 /* include <symProp> */
 
-mei::Symbol::Symbol() :
-    MeiElement("symbol"),
-    m_Altsym(this),
-    m_Authorized(this),
-    m_Color(this),
-    m_Common(this),
-    m_CommonPart(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
-    m_Extsym(this),
-    m_Facsimile(this),
-    m_Scalable(this),
-    m_Startid(this),
-    m_Typed(this),
-    m_Typography(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
-    m_Xy(this)
-{
-}
-REGISTER_DEFINITION(mei::Symbol, "symbol");
-mei::Symbol::~Symbol() {}
-mei::Symbol::Symbol(const Symbol& other) :
-    MeiElement(other),
-    m_Altsym(this),
-    m_Authorized(this),
-    m_Color(this),
-    m_Common(this),
-    m_CommonPart(this),
-    m_CommonAnl(this),
-    m_Alignment(this),
-    m_Extsym(this),
-    m_Facsimile(this),
-    m_Scalable(this),
-    m_Startid(this),
-    m_Typed(this),
-    m_Typography(this),
-    m_VisualoffsetHo(this),
-    m_VisualoffsetTo(this),
-    m_VisualoffsetVo(this),
-    m_Xy(this)
-{
-}
-
-/* include <symbol> */
-
 mei::SymbolDef::SymbolDef() :
     MeiElement("symbolDef"),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Coordinated(this)
 {
 }
@@ -324,8 +352,13 @@ REGISTER_DEFINITION(mei::SymbolDef, "symbolDef");
 mei::SymbolDef::~SymbolDef() {}
 mei::SymbolDef::SymbolDef(const SymbolDef& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this),
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this),
     m_Coordinated(this)
 {
 }
@@ -334,16 +367,26 @@ mei::SymbolDef::SymbolDef(const SymbolDef& other) :
 
 mei::SymbolTable::SymbolTable() :
     MeiElement("symbolTable"),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 REGISTER_DEFINITION(mei::SymbolTable, "symbolTable");
 mei::SymbolTable::~SymbolTable() {}
 mei::SymbolTable::SymbolTable(const SymbolTable& other) :
     MeiElement(other),
-    m_Common(this),
-    m_CommonPart(this)
+    m_Basic(this),
+    m_Labelled(this),
+    m_Linking(this),
+    m_NNumberLike(this),
+    m_Responsibility(this),
+    m_Typed(this),
+    m_Classed(this)
 {
 }
 

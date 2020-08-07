@@ -35,7 +35,7 @@ class LigatureLogMixIn {
     public:
         explicit LigatureLogMixIn(MeiElement *b);
         virtual ~LigatureLogMixIn();
-        /** \brief Records the appearance and usually the function of the bar line.
+        /** \brief Indicates to what degree the harmonic label is supported by the notation.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
@@ -43,29 +43,6 @@ class LigatureLogMixIn {
         void removeForm();
 
 /* include <formmixin> */
-
-    private:
-        MeiElement *b;
-};
-
-class MensurVisMixIn {
-    public:
-        explicit MensurVisMixIn(MeiElement *b);
-        virtual ~MensurVisMixIn();
-        /** \brief Records the appearance and usually the function of the bar line.
-         */
-        MeiAttribute* getForm();
-        void setForm(std::string _form);
-        bool hasForm();
-        void removeForm();
-        /** \brief Describes the rotation or reflection of the base symbol.
-         */
-        MeiAttribute* getOrient();
-        void setOrient(std::string _orient);
-        bool hasOrient();
-        void removeOrient();
-
-/* include <orientmixin> */
 
     private:
         MeiElement *b;
@@ -155,53 +132,10 @@ class MensuralSharedMixIn {
         MeiElement *b;
 };
 
-class MensuralVisMixIn {
+class NoteAnlMensuralMixIn {
     public:
-        explicit MensuralVisMixIn(MeiElement *b);
-        virtual ~MensuralVisMixIn();
-        /** \brief Records the color of the mensuration sign.
-         * 
-         *  Do not confuse this with the musical term 'color' as used in pre-CMN notation.
-         */
-        MeiAttribute* getMensurColor();
-        void setMensurColor(std::string _mensurcolor);
-        bool hasMensurColor();
-        void removeMensurColor();
-        /** \brief Indicates whether the base symbol is written vertically or horizontally.
-         */
-        MeiAttribute* getMensurForm();
-        void setMensurForm(std::string _mensurform);
-        bool hasMensurForm();
-        void removeMensurForm();
-        /** \brief Holds the staff location of the mensuration sign.
-         */
-        MeiAttribute* getMensurLoc();
-        void setMensurLoc(std::string _mensurloc);
-        bool hasMensurLoc();
-        void removeMensurLoc();
-        /** \brief Describes the rotation or reflection of the base symbol.
-         */
-        MeiAttribute* getMensurOrient();
-        void setMensurOrient(std::string _mensurorient);
-        bool hasMensurOrient();
-        void removeMensurOrient();
-        /** \brief Describes the relative size of the mensuration sign.
-         */
-        MeiAttribute* getMensurSize();
-        void setMensurSize(std::string _mensursize);
-        bool hasMensurSize();
-        void removeMensurSize();
-
-/* include <mensur.sizemixin> */
-
-    private:
-        MeiElement *b;
-};
-
-class NoteLogMensuralMixIn {
-    public:
-        explicit NoteLogMensuralMixIn(MeiElement *b);
-        virtual ~NoteLogMensuralMixIn();
+        explicit NoteAnlMensuralMixIn(MeiElement *b);
+        virtual ~NoteAnlMensuralMixIn();
         /** \brief Indicates this element's participation in a ligature.
          */
         MeiAttribute* getLig();

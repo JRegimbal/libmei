@@ -21,8 +21,8 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef ANALYSISMIXIN_H_
-#define ANALYSISMIXIN_H_
+#ifndef ANALYTICALMIXIN_H_
+#define ANALYTICALMIXIN_H_
 
 #include "meielement.h"
 #include "exceptions.h"
@@ -31,65 +31,34 @@
 #include <string>
 
 namespace mei {
-class CommonAnlMixIn {
+class HarmAnlMixIn {
     public:
-        explicit CommonAnlMixIn(MeiElement *b);
-        virtual ~CommonAnlMixIn();
-        /** \brief Points to an element of which the current element is a copy.
+        explicit HarmAnlMixIn(MeiElement *b);
+        virtual ~HarmAnlMixIn();
+        /** \brief Indicates to what degree the harmonic label is supported by the notation.
          */
-        MeiAttribute* getCopyof();
-        void setCopyof(std::string _copyof);
-        bool hasCopyof();
-        void removeCopyof();
-        /** \brief Used to point to other elements that correspond to this one in a generic
-         *  fashion.
-         */
-        MeiAttribute* getCorresp();
-        void setCorresp(std::string _corresp);
-        bool hasCorresp();
-        void removeCorresp();
-        /** \brief Used to point to the next event(s) in a user-defined collection.
-         */
-        MeiAttribute* getNext();
-        void setNext(std::string _next);
-        bool hasNext();
-        void removeNext();
-        /** \brief Points to the previous event(s) in a user-defined collection.
-         */
-        MeiAttribute* getPrev();
-        void setPrev(std::string _prev);
-        bool hasPrev();
-        void removePrev();
-        /** \brief Points to an element that is the same as the current element but is not a
-         *  literal copy of the current element.
-         */
-        MeiAttribute* getSameas();
-        void setSameas(std::string _sameas);
-        bool hasSameas();
-        void removeSameas();
-        /** \brief Points to elements that are synchronous with the current element.
-         */
-        MeiAttribute* getSynch();
-        void setSynch(std::string _synch);
-        bool hasSynch();
-        void removeSynch();
+        MeiAttribute* getForm();
+        void setForm(std::string _form);
+        bool hasForm();
+        void removeForm();
 
-/* include <synchmixin> */
+/* include <formmixin> */
 
     private:
         MeiElement *b;
 };
 
-class HarmonicfunctionMixIn {
+class HarmonicFunctionMixIn {
     public:
-        explicit HarmonicfunctionMixIn(MeiElement *b);
-        virtual ~HarmonicfunctionMixIn();
-        /** \brief Captures relative scale degree information using Humdrum **deg syntax -- an
-         *  optional indicator of melodic approach (^ = ascending approach, v = descending
-         *  approach), a scale degree value (1 = tonic ...
+        explicit HarmonicFunctionMixIn(MeiElement *b);
+        virtual ~HarmonicFunctionMixIn();
+        /** \brief Captures scale degree information using Humdrum **deg syntax -- an optional
+         *  indicator of melodic approach (^ = ascending approach, v = descending approach),
+         *  a scale degree value (1 = tonic ...
          * 
-         *  7 = leading tone), and an optional indication of chromatic alteration. The
-         *  amount of chromatic alternation is not indicated.
+         *  7 = leading tone), and an optional indication of chromatic alteration, "1",
+         *  "v7", "^1", or "v5+", for example. The amount of chromatic alternation is not
+         *  indicated.
          */
         MeiAttribute* getDeg();
         void setDeg(std::string _deg);
@@ -102,10 +71,10 @@ class HarmonicfunctionMixIn {
         MeiElement *b;
 };
 
-class IntervalharmonicMixIn {
+class IntervalHarmonicMixIn {
     public:
-        explicit IntervalharmonicMixIn(MeiElement *b);
-        virtual ~IntervalharmonicMixIn();
+        explicit IntervalHarmonicMixIn(MeiElement *b);
+        virtual ~IntervalHarmonicMixIn();
         /** \brief Encodes the harmonic interval between pitches occurring at the same time.
          */
         MeiAttribute* getInth();
@@ -119,14 +88,14 @@ class IntervalharmonicMixIn {
         MeiElement *b;
 };
 
-class IntervalmelodicMixIn {
+class IntervalMelodicMixIn {
     public:
-        explicit IntervalmelodicMixIn(MeiElement *b);
-        virtual ~IntervalmelodicMixIn();
+        explicit IntervalMelodicMixIn(MeiElement *b);
+        virtual ~IntervalMelodicMixIn();
         /** \brief Encodes the melodic interval from the previous pitch.
          * 
-         *  The value may be a general directional indication (u, d, s), an indication of
-         *  diatonic interval direction, quality, and size, or a precise numeric value in
+         *  The value may be a general directional indication (u, d, s, etc.), an indication
+         *  of diatonic interval direction, quality, and size, or a precise numeric value in
          *  half steps.
          */
         MeiAttribute* getIntm();
@@ -140,10 +109,59 @@ class IntervalmelodicMixIn {
         MeiElement *b;
 };
 
-class MelodicfunctionMixIn {
+class KeySigAnlMixIn {
     public:
-        explicit MelodicfunctionMixIn(MeiElement *b);
-        virtual ~MelodicfunctionMixIn();
+        explicit KeySigAnlMixIn(MeiElement *b);
+        virtual ~KeySigAnlMixIn();
+        /** \brief Indicates major, minor, or other tonality.
+         */
+        MeiAttribute* getMode();
+        void setMode(std::string _mode);
+        bool hasMode();
+        void removeMode();
+
+/* include <modemixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class KeySigDefaultAnlMixIn {
+    public:
+        explicit KeySigDefaultAnlMixIn(MeiElement *b);
+        virtual ~KeySigDefaultAnlMixIn();
+        /** \brief Contains an accidental for the tonic key, if one is required, e.g., if key.pname
+         *  equals 'c' and key.accid equals 's', then a tonic of C# is indicated.
+         */
+        MeiAttribute* getKeyAccid();
+        void setKeyAccid(std::string _keyaccid);
+        bool hasKeyAccid();
+        void removeKeyAccid();
+        /** \brief Indicates major, minor, or other tonality.
+         */
+        MeiAttribute* getKeyMode();
+        void setKeyMode(std::string _keymode);
+        bool hasKeyMode();
+        void removeKeyMode();
+        /** \brief Holds the pitch name of the tonic key, e.g.
+         * 
+         *  'c' for the key of C.
+         */
+        MeiAttribute* getKeyPname();
+        void setKeyPname(std::string _keypname);
+        bool hasKeyPname();
+        void removeKeyPname();
+
+/* include <key.pnamemixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class MelodicFunctionMixIn {
+    public:
+        explicit MelodicFunctionMixIn(MeiElement *b);
+        virtual ~MelodicFunctionMixIn();
         /** \brief Describes melodic function using Humdrum **embel syntax.
          */
         MeiAttribute* getMfunc();
@@ -157,10 +175,10 @@ class MelodicfunctionMixIn {
         MeiElement *b;
 };
 
-class PitchclassMixIn {
+class PitchClassMixIn {
     public:
-        explicit PitchclassMixIn(MeiElement *b);
-        virtual ~PitchclassMixIn();
+        explicit PitchClassMixIn(MeiElement *b);
+        virtual ~PitchClassMixIn();
         /** \brief Holds pitch class information.
          */
         MeiAttribute* getPclass();
@@ -192,4 +210,4 @@ class SolfaMixIn {
         MeiElement *b;
 };
 }
-#endif  // ANALYSISMIXIN_H_
+#endif  // ANALYTICALMIXIN_H_

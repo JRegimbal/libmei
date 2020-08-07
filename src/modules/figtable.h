@@ -47,10 +47,16 @@ class MEI_EXPORT Fig : public MeiElement {
 
 /* include <fig> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        FacsimileMixIn    m_Facsimile;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        FacsimileMixIn    m_Facsimile;
+        HorizontalAlignMixIn    m_HorizontalAlign;
+        VerticalAlignMixIn    m_VerticalAlign;
         XyMixIn    m_Xy;
 
     private:
@@ -69,8 +75,13 @@ class MEI_EXPORT FigDesc : public MeiElement {
 
 /* include <figDesc> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         LangMixIn    m_Lang;
 
     private:
@@ -99,20 +110,23 @@ class MEI_EXPORT Graphic : public MeiElement {
 
 /* include <graphic> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        DeclaringMixIn    m_Declaring;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         HeightMixIn    m_Height;
         WidthMixIn    m_Width;
-        InternetmediaMixIn    m_Internetmedia;
+        InternetMediaMixIn    m_InternetMedia;
         FacsimileMixIn    m_Facsimile;
+        MetadataPointingMixIn    m_MetadataPointing;
         PointingMixIn    m_Pointing;
-        MeasurementMixIn    m_Measurement;
-        StartidMixIn    m_Startid;
-        TypedMixIn    m_Typed;
-        VisualoffsetHoMixIn    m_VisualoffsetHo;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
+        StartIdMixIn    m_StartId;
+        VisualOffsetHoMixIn    m_VisualOffsetHo;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
 
     private:
         REGISTER_DECLARATION(Graphic);
@@ -128,8 +142,13 @@ class MEI_EXPORT Table : public MeiElement {
 
 /* include <table> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         XyMixIn    m_Xy;
@@ -149,8 +168,13 @@ class MEI_EXPORT Td : public MeiElement {
 
 /* include <td> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         XyMixIn    m_Xy;
@@ -171,8 +195,13 @@ class MEI_EXPORT Th : public MeiElement {
 
 /* include <th> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         XyMixIn    m_Xy;
@@ -182,8 +211,8 @@ class MEI_EXPORT Th : public MeiElement {
         REGISTER_DECLARATION(Th);
 };
 
-/** \brief (table row) – A formatting element that contains one or more cells
- *  (intersection of a row and a column) in a <table>.
+/** \brief (table row) – A formatting element that contains one or more cells (intersection
+ *  of a row and a column) in a
  */
 class MEI_EXPORT Tr : public MeiElement {
     public:
@@ -193,8 +222,13 @@ class MEI_EXPORT Tr : public MeiElement {
 
 /* include <tr> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
         XyMixIn    m_Xy;

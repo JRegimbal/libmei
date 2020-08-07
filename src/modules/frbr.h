@@ -30,29 +30,12 @@
 
 #include "meicommon.h"
 #include "sharedmixins.h"
-#include "critappmixins.h"
-#include "edittransmixins.h"
-#include "frbrmixins.h"
+#include "msdescmixins.h"
+#include "headermixins.h"
+#include <string>
 
 
 namespace mei {
-/** \brief (component group) – Container for components of a bibliographic entity.
- */
-class MEI_EXPORT ComponentGrp : public MeiElement {
-    public:
-        ComponentGrp();
-        ComponentGrp(const ComponentGrp& other);
-        virtual ~ComponentGrp();
-
-/* include <componentGrp> */
-
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-
-    private:
-        REGISTER_DECLARATION(ComponentGrp);
-};
-
 /** \brief Intellectual or artistic realization of a work.
  */
 class MEI_EXPORT Expression : public MeiElement {
@@ -63,10 +46,17 @@ class MEI_EXPORT Expression : public MeiElement {
 
 /* include <expression> */
 
-        DatapointingMixIn    m_Datapointing;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
+        DataPointingMixIn    m_DataPointing;
 
     private:
         REGISTER_DECLARATION(Expression);
@@ -82,8 +72,13 @@ class MEI_EXPORT ExpressionList : public MeiElement {
 
 /* include <expressionList> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(ExpressionList);
@@ -99,12 +94,19 @@ class MEI_EXPORT Item : public MeiElement {
 
 /* include <item> */
 
-        DatapointingMixIn    m_Datapointing;
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
         BiblMixIn    m_Bibl;
+        DataPointingMixIn    m_DataPointing;
         PointingMixIn    m_Pointing;
-        TargetevalMixIn    m_Targeteval;
+        TargetEvalMixIn    m_TargetEval;
 
     private:
         REGISTER_DECLARATION(Item);
@@ -120,54 +122,75 @@ class MEI_EXPORT ItemList : public MeiElement {
 
 /* include <itemList> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(ItemList);
 };
 
-/** \brief A relation element describes the relationship between its parent and the object
- *  referenced by the relation element's target attribute.
+/** \brief A bibliographic description of a physical embodiment of an expression of a work.
  */
-class MEI_EXPORT Relation : public MeiElement {
+class MEI_EXPORT Manifestation : public MeiElement {
     public:
-        Relation();
-        Relation(const Relation& other);
-        virtual ~Relation();
+        Manifestation();
+        Manifestation(const Manifestation& other);
+        virtual ~Manifestation();
+        /** \brief 
+         */
+        MeiAttribute* getSingleton();
+        void setSingleton(std::string _singleton);
+        bool hasSingleton();
+        void removeSingleton();
 
-/* include <relation> */
+/* include <manifestation> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        BiblMixIn    m_Bibl;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
-        SourceMixIn    m_Source;
-        EvidenceMixIn    m_Evidence;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        AuthorizedMixIn    m_Authorized;
+        CanonicalMixIn    m_Canonical;
+        BiblMixIn    m_Bibl;
+        ComponentTypeMixIn    m_ComponentType;
+        DataPointingMixIn    m_DataPointing;
         PointingMixIn    m_Pointing;
-        RelMixIn    m_Rel;
-        TargetevalMixIn    m_Targeteval;
+        RecordTypeMixIn    m_RecordType;
+        TargetEvalMixIn    m_TargetEval;
 
     private:
-        REGISTER_DECLARATION(Relation);
+        REGISTER_DECLARATION(Manifestation);
 };
 
-/** \brief Gathers bibliographic relation elements.
+/** \brief A container for the descriptions of physical embodiments of an expression of a
+ *  work.
  */
-class MEI_EXPORT RelationList : public MeiElement {
+class MEI_EXPORT ManifestationList : public MeiElement {
     public:
-        RelationList();
-        RelationList(const RelationList& other);
-        virtual ~RelationList();
+        ManifestationList();
+        ManifestationList(const ManifestationList& other);
+        virtual ~ManifestationList();
 
-/* include <relationList> */
+/* include <manifestationList> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
-        REGISTER_DECLARATION(RelationList);
+        REGISTER_DECLARATION(ManifestationList);
 };
 }
 #endif  // FRBR_H_

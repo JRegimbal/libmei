@@ -31,8 +31,6 @@
 #include "meicommon.h"
 #include "sharedmixins.h"
 #include "critappmixins.h"
-#include "analysismixins.h"
-#include "performancemixins.h"
 
 
 namespace mei {
@@ -46,9 +44,13 @@ class MEI_EXPORT App : public MeiElement {
 
 /* include <app> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
         TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
 
     private:
         REGISTER_DECLARATION(App);
@@ -64,18 +66,19 @@ class MEI_EXPORT Lem : public MeiElement {
 
 /* include <lem> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        CritMixIn    m_Crit;
-        HandidentMixIn    m_Handident;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        CritMixIn    m_Crit;
+        HandIdentMixIn    m_HandIdent;
         SequenceMixIn    m_Sequence;
         SourceMixIn    m_Source;
         PointingMixIn    m_Pointing;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        TargetevalMixIn    m_Targeteval;
-        TypedMixIn    m_Typed;
+        TargetEvalMixIn    m_TargetEval;
 
     private:
         REGISTER_DECLARATION(Lem);
@@ -91,18 +94,19 @@ class MEI_EXPORT Rdg : public MeiElement {
 
 /* include <rdg> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
-        CritMixIn    m_Crit;
-        HandidentMixIn    m_Handident;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
         ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        CritMixIn    m_Crit;
+        HandIdentMixIn    m_HandIdent;
         SequenceMixIn    m_Sequence;
         SourceMixIn    m_Source;
         PointingMixIn    m_Pointing;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
-        TargetevalMixIn    m_Targeteval;
-        TypedMixIn    m_Typed;
+        TargetEvalMixIn    m_TargetEval;
 
     private:
         REGISTER_DECLARATION(Rdg);

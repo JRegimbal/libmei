@@ -32,8 +32,7 @@
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
 #include "mensuralmixins.h"
-#include "analysismixins.h"
-#include "performancemixins.h"
+#include "visualmixins.h"
 #include "usersymbolsmixins.h"
 #include "externalsymbolsmixins.h"
 
@@ -49,12 +48,16 @@ class MEI_EXPORT Ligature : public MeiElement {
 
 /* include <ligature> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LigatureLogMixIn    m_LigatureLog;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
+        ColorMixIn    m_Color;
 
     private:
         REGISTER_DECLARATION(Ligature);
@@ -71,22 +74,24 @@ class MEI_EXPORT Mensur : public MeiElement {
 
 /* include <mensur> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         MensurLogMixIn    m_MensurLog;
         DurationRatioMixIn    m_DurationRatio;
-        SlashcountMixIn    m_Slashcount;
         MensuralSharedMixIn    m_MensuralShared;
+        SlashCountMixIn    m_SlashCount;
         MensurVisMixIn    m_MensurVis;
-        AltsymMixIn    m_Altsym;
+        AltSymMixIn    m_AltSym;
         ColorMixIn    m_Color;
-        ExtsymMixIn    m_Extsym;
-        RelativesizeMixIn    m_Relativesize;
-        StafflocMixIn    m_Staffloc;
+        ExtSymMixIn    m_ExtSym;
+        StaffLocMixIn    m_StaffLoc;
         TypographyMixIn    m_Typography;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
 
     private:
         REGISTER_DECLARATION(Mensur);
@@ -102,15 +107,20 @@ class MEI_EXPORT Proport : public MeiElement {
 
 /* include <proport> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         DurationRatioMixIn    m_DurationRatio;
-        AltsymMixIn    m_Altsym;
-        ExtsymMixIn    m_Extsym;
+        AltSymMixIn    m_AltSym;
+        ColorMixIn    m_Color;
+        ExtSymMixIn    m_ExtSym;
+        StaffLocMixIn    m_StaffLoc;
         TypographyMixIn    m_Typography;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
 
     private:
         REGISTER_DECLARATION(Proport);

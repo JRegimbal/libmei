@@ -35,14 +35,14 @@ class MordentLogMixIn {
     public:
         explicit MordentLogMixIn(MeiElement *b);
         virtual ~MordentLogMixIn();
-        /** \brief Records the appearance and usually the function of the bar line.
+        /** \brief Indicates to what degree the harmonic label is supported by the notation.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);
         bool hasForm();
         void removeForm();
-        /** \brief When the long attribute is set to 'yes', a double or long mordent, consisting of
-         *  5 notes, is indicated.
+        /** \brief When set to 'true', a double or long mordent, sometimes called a "pincé double",
+         *  consisting of 5 notes, is indicated.
          */
         MeiAttribute* getLong();
         void setLong(std::string _long);
@@ -55,10 +55,10 @@ class MordentLogMixIn {
         MeiElement *b;
 };
 
-class OrnamMixIn {
+class OrnamPresentMixIn {
     public:
-        explicit OrnamMixIn(MeiElement *b);
-        virtual ~OrnamMixIn();
+        explicit OrnamPresentMixIn(MeiElement *b);
+        virtual ~OrnamPresentMixIn();
         /** \brief Indicates that this element has an attached ornament.
          * 
          *  If visual information about the ornament is needed, then one of the elements
@@ -75,10 +75,10 @@ class OrnamMixIn {
         MeiElement *b;
 };
 
-class OrnamentaccidMixIn {
+class OrnamentAccidMixIn {
     public:
-        explicit OrnamentaccidMixIn(MeiElement *b);
-        virtual ~OrnamentaccidMixIn();
+        explicit OrnamentAccidMixIn(MeiElement *b);
+        virtual ~OrnamentAccidMixIn();
         /** \brief Records the written accidental associated with an upper neighboring note.
          */
         MeiAttribute* getAccidupper();
@@ -102,16 +102,13 @@ class TurnLogMixIn {
     public:
         explicit TurnLogMixIn(MeiElement *b);
         virtual ~TurnLogMixIn();
-        /** \brief When the delayed attribute is set to 'true', the turn begins on the second half
-         *  of the beat.
-         * 
-         *  See Read, p. 246.
+        /** \brief When set to 'true', the turn begins on the second half of the beat.
          */
         MeiAttribute* getDelayed();
         void setDelayed(std::string _delayed);
         bool hasDelayed();
         void removeDelayed();
-        /** \brief Records the appearance and usually the function of the bar line.
+        /** \brief Indicates to what degree the harmonic label is supported by the notation.
          */
         MeiAttribute* getForm();
         void setForm(std::string _form);

@@ -31,38 +31,43 @@
 #include "meicommon.h"
 #include "sharedmixins.h"
 #include "facsimilemixins.h"
-#include "analysismixins.h"
-#include "performancemixins.h"
-#include "lyricsmixins.h"
 
 
 namespace mei {
-/** \brief Vocally performed 'text' of a musical composition, such as a song or opera.
+/** \brief Recurring lyrics, especially at the end of each verse or stanza of a poem or
+ *  song lyrics; a chorus.
  */
-class MEI_EXPORT Lyrics : public MeiElement {
+class MEI_EXPORT Refrain : public MeiElement {
     public:
-        Lyrics();
-        Lyrics(const Lyrics& other);
-        virtual ~Lyrics();
+        Refrain();
+        Refrain(const Refrain& other);
+        virtual ~Refrain();
 
-/* include <lyrics> */
+/* include <refrain> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
-        StaffidentMixIn    m_Staffident;
-        LayeridentMixIn    m_Layerident;
+        ColorMixIn    m_Color;
         PlacementMixIn    m_Placement;
         TypographyMixIn    m_Typography;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
+        VoltaGroupingSymMixIn    m_VoltaGroupingSym;
+        XyMixIn    m_Xy;
 
     private:
-        REGISTER_DECLARATION(Lyrics);
+        REGISTER_DECLARATION(Refrain);
 };
 
-/** \brief Lyric verse.
+/** \brief Division of a poem or song lyrics, sometimes having a fixed length, meter or
+ *  rhyme scheme; a stanza.
  */
 class MEI_EXPORT Verse : public MeiElement {
     public:
@@ -72,21 +77,54 @@ class MEI_EXPORT Verse : public MeiElement {
 
 /* include <verse> */
 
-        CommonMixIn    m_Common;
-        CommonPartMixIn    m_CommonPart;
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
         FacsimileMixIn    m_Facsimile;
         LangMixIn    m_Lang;
-        VerseLogMixIn    m_VerseLog;
         ColorMixIn    m_Color;
+        PlacementMixIn    m_Placement;
         TypographyMixIn    m_Typography;
-        VisualoffsetToMixIn    m_VisualoffsetTo;
-        VisualoffsetVoMixIn    m_VisualoffsetVo;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
+        VoltaGroupingSymMixIn    m_VoltaGroupingSym;
         XyMixIn    m_Xy;
-        CommonAnlMixIn    m_CommonAnl;
-        AlignmentMixIn    m_Alignment;
 
     private:
         REGISTER_DECLARATION(Verse);
+};
+
+/** \brief Sung text for a specific iteration of a repeated section of music.
+ */
+class MEI_EXPORT Volta : public MeiElement {
+    public:
+        Volta();
+        Volta(const Volta& other);
+        virtual ~Volta();
+
+/* include <volta> */
+
+        BasicMixIn    m_Basic;
+        LabelledMixIn    m_Labelled;
+        LinkingMixIn    m_Linking;
+        NNumberLikeMixIn    m_NNumberLike;
+        ResponsibilityMixIn    m_Responsibility;
+        TypedMixIn    m_Typed;
+        ClassedMixIn    m_Classed;
+        FacsimileMixIn    m_Facsimile;
+        LangMixIn    m_Lang;
+        ColorMixIn    m_Color;
+        TypographyMixIn    m_Typography;
+        VisualOffsetToMixIn    m_VisualOffsetTo;
+        VisualOffsetVoMixIn    m_VisualOffsetVo;
+        XyMixIn    m_Xy;
+
+    private:
+        REGISTER_DECLARATION(Volta);
 };
 }
 #endif  // LYRICS_H_

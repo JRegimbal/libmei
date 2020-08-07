@@ -31,10 +31,85 @@
 #include <string>
 
 namespace mei {
-class RegularmethodMixIn {
+class BifoliumSurfacesMixIn {
     public:
-        explicit RegularmethodMixIn(MeiElement *b);
-        virtual ~RegularmethodMixIn();
+        explicit BifoliumSurfacesMixIn(MeiElement *b);
+        virtual ~BifoliumSurfacesMixIn();
+        /** \brief A reference to a
+         */
+        MeiAttribute* getOuterRecto();
+        void setOuterRecto(std::string _outerrecto);
+        bool hasOuterRecto();
+        void removeOuterRecto();
+        /** \brief A reference to a
+         */
+        MeiAttribute* getInnerVerso();
+        void setInnerVerso(std::string _innerverso);
+        bool hasInnerVerso();
+        void removeInnerVerso();
+        /** \brief A reference to a
+         */
+        MeiAttribute* getInnerRecto();
+        void setInnerRecto(std::string _innerrecto);
+        bool hasInnerRecto();
+        void removeInnerRecto();
+        /** \brief A reference to a
+         */
+        MeiAttribute* getOuterVerso();
+        void setOuterVerso(std::string _outerverso);
+        bool hasOuterVerso();
+        void removeOuterVerso();
+
+/* include <outer.versomixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class FoliumSurfacesMixIn {
+    public:
+        explicit FoliumSurfacesMixIn(MeiElement *b);
+        virtual ~FoliumSurfacesMixIn();
+        /** \brief A reference to a
+         */
+        MeiAttribute* getRecto();
+        void setRecto(std::string _recto);
+        bool hasRecto();
+        void removeRecto();
+        /** \brief A reference to a
+         */
+        MeiAttribute* getVerso();
+        void setVerso(std::string _verso);
+        bool hasVerso();
+        void removeVerso();
+
+/* include <versomixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class RecordTypeMixIn {
+    public:
+        explicit RecordTypeMixIn(MeiElement *b);
+        virtual ~RecordTypeMixIn();
+        /** \brief 
+         */
+        MeiAttribute* getRecordtype();
+        void setRecordtype(std::string _recordtype);
+        bool hasRecordtype();
+        void removeRecordtype();
+
+/* include <recordtypemixin> */
+
+    private:
+        MeiElement *b;
+};
+
+class RegularMethodMixIn {
+    public:
+        explicit RegularMethodMixIn(MeiElement *b);
+        virtual ~RegularMethodMixIn();
         /** \brief Indicates the method employed to mark corrections and normalizations.
          */
         MeiAttribute* getMethod();
